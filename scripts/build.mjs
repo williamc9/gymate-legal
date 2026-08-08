@@ -9,6 +9,7 @@ const requiredFragments = [
   'id="terms-zh"', 'id="community-zh"', 'id="support-zh"',
   'id="delete-zh"', 'triboholic@gmail.com', 'Chow William',
   'Bonus Wave balance and grant/spend', 'Bonus Wave 餘額及增減帳目',
+  'Favorite Rooms are visible only to you', '最愛房間只得你睇到',
 ];
 
 for (const fragment of requiredFragments) {
