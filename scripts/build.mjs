@@ -8,6 +8,7 @@ const requiredFragments = [
   'id="support-en"', 'id="delete-en"', 'id="privacy-zh"',
   'id="terms-zh"', 'id="community-zh"', 'id="support-zh"',
   'id="delete-zh"', 'triboholic@gmail.com', 'Chow William',
+  'Bonus Wave balance and grant/spend', 'Bonus Wave 餘額及增減帳目',
 ];
 
 for (const fragment of requiredFragments) {
