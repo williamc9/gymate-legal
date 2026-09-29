@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gymley — Website Screen Set</title>
+  <style>
+    @font-face { font-family: Baloo; src: url('./Baloo2-Bold.ttf') format('truetype'); font-weight: 700; }
+    @font-face { font-family: Inter; src: url('./Inter-Regular.ttf') format('truetype'); font-weight: 400; }
+    @font-face { font-family: Inter; src: url('./Inter-SemiBold.ttf') format('truetype'); font-weight: 600; }
+    :root {
+      --ink: #073833;
+      --ink-soft: #65736f;
+      --cream: #fbf7eb;
+      --paper: #fffdf8;
+      --gold: #ffb100;
+      --gold-soft: #ffdc7b;
+      --mint: #32eaa5;
+      --mint-soft: #d9faed;
+      --line: #dfe5df;
+      --red: #df6e6e;
+      --shadow: 0 18px 52px rgba(8, 50, 45, .14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -5%, rgba(50,234,165,.17), transparent 27rem),
+        radial-gradient(circle at 92% 3%, rgba(255,177,0,.17), transparent 25rem),
+        #f3f0e7;
+      font-family: Inter, sans-serif;
+    }
+    .page-head {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 64px 28px 38px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+    }
+    .eyebrow { font: 600 12px/1.2 Inter; letter-spacing: .18em; text-transform: uppercase; color: #9a6b00; }
+    h1 { font: 700 clamp(40px, 7vw, 76px)/.95 Baloo; margin: 10px 0 14px; letter-spacing: -.03em; }
+    .intro { max-width: 680px; margin: 0; color: var(--ink-soft); font-size: 17px; line-height: 1.6; }
+    .draft-pill { padding: 12px 16px; border: 1px solid rgba(7,56,51,.16); border-radius: 999px; background: rgba(255,255,255,.62); font-size: 13px; white-space: nowrap; }
+    .gallery {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 10px 28px 90px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 54px 34px;
+      align-items: start;
+    }
+    .concept { min-width: 0; }
+    .concept-meta { min-height: 82px; padding: 0 5px 18px; }
+    .concept-no { color: #9a6b00; font: 600 11px/1 Inter; letter-spacing: .18em; }
+    .concept h2 { margin: 7px 0 4px; font: 700 27px/1 Baloo; }
+    .concept p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.45; }
+    .phone {
+      position: relative;
+      width: min(100%, 390px);
+      aspect-ratio: 390 / 844;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 9px solid #0a2f2b;
+      border-radius: 46px;
+      background: var(--cream);
+      box-shadow: var(--shadow), 0 0 0 1px rgba(7,56,51,.18);
+    }
+    .phone::before {
+      content: '';
+      position: absolute;
+      z-index: 30;
+      top: 10px;
+      left: 50%;
+      width: 102px;
+      height: 27px;
+      transform: translateX(-50%);
+      border-radius: 20px;
+      background: #092d29;
+    }
+    .screen { position: absolute; inset: 0; overflow: hidden; background: var(--cream); }
+    .status {
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 23px 0;
+      color: #0d1816;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .signals { display: flex; gap: 5px; align-items: center; font-size: 11px; }
+    .app-head { display: flex; align-items: center; padding: 11px 22px 12px; gap: 12px; }
+    .app-head.compact { padding-bottom: 5px; }
+    .app-title { font: 700 31px/1 Baloo; letter-spacing: -.025em; white-space: nowrap; }
+    .app-sub { margin-top: 3px; color: var(--ink-soft); font-size: 13px; letter-spacing: .03em; }
+    .head-spacer { flex: 1; }
+    .avatar {
+      flex: 0 0 auto;
+      border-radius: 18px;
+      background-image: url('./gymley-fictional-profiles.png');
+      background-repeat: no-repeat;
+      background-size: 200% 200%;
+      background-color: #e8eee8;
+      box-shadow: inset 0 0 0 1px rgba(7,56,51,.08);
+    }
+    .p1 { background-position: 0 0; }
+    .p2 { background-position: 100% 0; }
+    .p3 { background-position: 0 100%; }
+    .p4 { background-position: 100% 100%; }
+    .avatar.xs { width: 34px; height: 34px; border-radius: 12px; }
+    .avatar.sm { width: 52px; height: 52px; }
+    .avatar.md { width: 72px; height: 72px; border-radius: 23px; }
+    .avatar.lg { width: 116px; height: 116px; border-radius: 36px; }
+    .icon-btn { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid #e1d6b8; background: rgba(255,255,255,.66); }
+    .icon-btn img { width: 23px; height: 23px; object-fit: contain; }
+    .star { font-size: 29px; line-height: 1; color: var(--gold); transform: translateY(-1px); }
+    .section-label { padding: 10px 22px 8px; font: 600 11px/1.3 Inter; letter-spacing: .16em; color: #9a6b00; text-transform: uppercase; }
+    .room-tools { margin: 3px 22px 10px; display: flex; align-items: center; gap: 11px; }
+    .room-tools img { width: 43px; height: 43px; object-fit: contain; }
+    .tally { display: flex; gap: 8px; align-items: center; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--gold); box-shadow: 0 2px 0 #d58d00; }
+    .quota { font: 600 10px/1.4 Inter; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+    .grid-icon { margin-left: auto; width: 37px; height: 37px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 7px; }
+    .grid-icon i { border: 1.7px solid var(--ink); border-radius: 3px; }
+    .coverage { margin: 0 22px 8px; padding-top: 10px; border-top: 1px solid rgba(7,56,51,.12); font: 600 10px/1 Inter; letter-spacing: .14em; color: var(--ink-soft); text-transform: uppercase; }
+    .people { display: grid; gap: 10px; padding: 8px 18px 72px; }
+    .person-card { display: flex; align-items: center; gap: 14px; min-height: 93px; padding: 14px 14px; border: 1px solid #e4e5de; border-radius: 23px; background: rgba(255,255,255,.86); box-shadow: 0 8px 20px rgba(7,56,51,.07); }
+    .person-main { min-width: 0; flex: 1; }
+    .person-name { font: 700 21px/1.1 Baloo; }
+    .person-status { margin-top: 5px; color: var(--ink-soft); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .photos { margin-top: 7px; color: #9aa49f; font-size: 10px; }
+    .wave-btn { width: 45px; height: 45px; border-radius: 50%; display: grid; place-items: center; background: #fffaf0; border: 1.5px solid var(--gold); }
+    .wave-btn img { width: 25px; height: 25px; object-fit: contain; }
+    .bottom-nav { position: absolute; z-index: 20; left: 0; right: 0; bottom: 0; height: 63px; display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #e2e2dc; background: rgba(255,255,255,.96); }
+    .nav-item { position: relative; width: 48px; display: grid; place-items: center; }
+    .nav-item img { width: 25px; height: 25px; object-fit: contain; opacity: .58; }
+    .nav-item.active img { opacity: 1; }
+    .nav-item.active::after { content: ''; position: absolute; bottom: -13px; width: 29px; height: 4px; border-radius: 4px; background: var(--gold); }
+
+    /* Profile preview */
+    .profile-back { font-size: 28px; font-weight: 400; }
+    .profile-hero { margin: 3px 20px 0; padding: 20px; border-radius: 30px; background: linear-gradient(145deg, #fff 12%, #fff7df); border: 1px solid #eadfbf; box-shadow: 0 10px 26px rgba(7,56,51,.08); text-align: center; }
+    .profile-hero .avatar { margin: 0 auto 14px; }
+    .profile-name { font: 700 36px/1 Baloo; }
+    .profile-status { margin: 8px auto 14px; color: var(--ink-soft); font-size: 14px; }
+    .tag-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 7px; }
+    .tag { padding: 7px 11px; border-radius: 999px; background: var(--mint-soft); color: var(--ink); font-size: 10px; font-weight: 600; }
+    .profile-note { display: flex; gap: 12px; align-items: flex-start; margin: 14px 20px; padding: 14px 16px; border-radius: 20px; background: #fff; border: 1px solid var(--line); color: var(--ink-soft); font-size: 12px; line-height: 1.45; }
+    .lock { width: 26px; height: 26px; flex: 0 0 auto; border-radius: 9px; display: grid; place-items: center; background: var(--mint-soft); }
+    .prompt-card { margin: 0 20px 13px; padding: 15px 17px; border-radius: 20px; background: #fff; border: 1px solid var(--line); }
+    .prompt-q { font: 600 9px/1 Inter; letter-spacing: .13em; color: #a0761f; text-transform: uppercase; }
+    .prompt-a { margin-top: 8px; font: 700 18px/1.2 Baloo; }
+    .cta { margin: 14px 20px 0; min-height: 57px; border-radius: 19px; background: var(--gold); display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--ink); font: 700 20px/1 Baloo; box-shadow: 0 6px 0 #d59000; }
+    .cta img { width: 25px; height: 25px; object-fit: contain; }
+    .micro { margin: 13px 35px 0; color: #87938f; font-size: 10px; line-height: 1.45; text-align: center; }
+
+    /* Match / chat */
+    .match-screen { background: linear-gradient(180deg, #eafff6 0, var(--cream) 37%); }
+    .chat-head { padding: 9px 17px 10px; display: flex; align-items: center; gap: 11px; border-bottom: 1px solid rgba(7,56,51,.09); background: rgba(255,255,255,.52); }
+    .chat-head .name { font: 700 20px/1 Baloo; }
+    .state-pill { margin-top: 3px; color: #11855f; font: 600 8px/1 Inter; letter-spacing: .11em; }
+    .match-card { margin: 18px 18px 14px; padding: 18px; border-radius: 25px; text-align: center; background: var(--ink); color: white; box-shadow: 0 12px 28px rgba(7,56,51,.2); }
+    .match-mark { margin: 0 auto 8px; width: 49px; height: 49px; border-radius: 16px; background: var(--gold); display: grid; place-items: center; }
+    .match-mark img { width: 33px; height: 33px; object-fit: contain; }
+    .match-title { font: 700 27px/1 Baloo; color: var(--gold-soft); }
+    .match-copy { max-width: 270px; margin: 6px auto 0; color: #d5e5df; font-size: 11px; line-height: 1.45; }
+    .messages { padding: 2px 17px; display: flex; flex-direction: column; gap: 8px; }
+    .bubble { max-width: 79%; padding: 11px 13px; border-radius: 17px; font-size: 12px; line-height: 1.4; }
+    .bubble.them { align-self: flex-start; background: white; border: 1px solid var(--line); border-bottom-left-radius: 5px; }
+    .bubble.me { align-self: flex-end; background: var(--gold); border-bottom-right-radius: 5px; }
+    .moment { margin: 12px 17px 0; padding: 12px 14px; border-radius: 17px; background: var(--mint-soft); color: #286056; font-size: 10px; line-height: 1.45; text-align: center; }
+    .composer { position: absolute; left: 15px; right: 15px; bottom: 19px; display: flex; gap: 9px; align-items: center; }
+    .field { flex: 1; height: 48px; padding: 0 16px; display: flex; align-items: center; color: #83908c; border-radius: 18px; border: 1px solid var(--line); background: white; font-size: 12px; }
+    .send { width: 48px; height: 48px; border-radius: 17px; display: grid; place-items: center; background: var(--gold); font-size: 20px; }
+
+    /* Ask a Spot */
+    .train-hero { margin: 5px 18px 12px; padding: 18px; border-radius: 27px; background: var(--ink); color: white; }
+    .train-title { display: flex; align-items: center; gap: 10px; }
+    .train-title img { width: 35px; height: 35px; object-fit: contain; filter: brightness(0) invert(1); }
+    .train-title strong { font: 700 26px/1 Baloo; color: var(--gold-soft); }
+    .train-hero p { margin: 8px 0 0; color: #d4e1dd; font-size: 11px; line-height: 1.45; }
+    .spot-card { margin: 0 18px 13px; padding: 16px; border-radius: 23px; background: #fff; border: 1px solid var(--line); box-shadow: 0 9px 22px rgba(7,56,51,.07); }
+    .spot-person { display: flex; align-items: center; gap: 12px; }
+    .spot-person strong { display: block; font: 700 20px/1 Baloo; }
+    .spot-person span { display: block; margin-top: 5px; color: var(--ink-soft); font-size: 10px; }
+    .accepted { margin-left: auto; padding: 7px 9px; border-radius: 999px; background: var(--mint-soft); color: #13805e; font-size: 8px; font-weight: 600; letter-spacing: .08em; }
+    .spot-messages { margin-top: 15px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 7px; }
+    .quick { display: flex; gap: 7px; margin-top: 12px; }
+    .quick span { flex: 1; padding: 8px 4px; border-radius: 11px; border: 1px solid #dfc37a; color: #7a5b10; font-size: 8px; text-align: center; }
+    .boundary { margin: 0 18px 12px; padding: 12px 13px; background: #fff8e7; border-radius: 17px; color: #786f5e; font-size: 9px; line-height: 1.45; text-align: center; }
+    .mini-program { margin: 0 18px; padding: 14px 15px; border-radius: 20px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
+    .mini-program img { width: 34px; height: 34px; object-fit: contain; }
+    .mini-program strong { display: block; font: 700 17px/1 Baloo; }
+    .mini-program span { display: block; margin-top: 4px; color: var(--ink-soft); font-size: 9px; }
+
+    /* Programs */
+    .program-summary { margin: 6px 18px 14px; padding: 18px; border-radius: 28px; background: linear-gradient(135deg, var(--gold), #ffd46c); box-shadow: 0 7px 0 #d69100; }
+    .program-summary .small { font-size: 10px; letter-spacing: .11em; text-transform: uppercase; }
+    .program-summary .big { margin-top: 6px; font: 700 29px/1 Baloo; }
+    .program-summary p { margin: 8px 0 0; max-width: 265px; font-size: 11px; line-height: 1.45; color: #4f4a36; }
+    .program-list { display: grid; gap: 10px; padding: 5px 18px 0; }
+    .program-card { padding: 15px 15px; border-radius: 21px; background: white; border: 1px solid var(--line); display: grid; grid-template-columns: 43px 1fr auto; gap: 12px; align-items: center; }
+    .program-icon { width: 43px; height: 43px; border-radius: 15px; display: grid; place-items: center; background: var(--mint-soft); }
+    .program-icon img { width: 25px; height: 25px; object-fit: contain; }
+    .program-card strong { display: block; font: 700 18px/1 Baloo; }
+    .program-card span { display: block; margin-top: 5px; color: var(--ink-soft); font-size: 9px; }
+    .play { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: white; font-size: 12px; }
+    .new-program { margin: 14px 18px 0; height: 49px; display: grid; place-items: center; border: 1.5px dashed #c19f4c; border-radius: 17px; color: #7f651f; font: 700 15px/1 Baloo; }
+
+    /* Wave tier */
+    .tier-card { margin: 8px 18px 14px; padding: 17px 20px 18px; border-radius: 29px; background: linear-gradient(160deg, #ffbd1e, #f3a400); border: 2px solid #e49b00; box-shadow: 0 12px 25px rgba(202,139,0,.2); text-align: center; }
+    .tier-card img { width: 150px; height: 150px; object-fit: contain; margin: -3px auto -8px; }
+    .tier-count { font: 700 51px/.9 Baloo; }
+    .tier-name { display: inline-block; margin-top: 12px; padding: 8px 18px; border-radius: 999px; background: var(--ink); color: var(--gold-soft); font: 600 10px/1 Inter; letter-spacing: .14em; text-transform: uppercase; }
+    .tier-progress { height: 6px; margin: 18px 4px 11px; border-radius: 99px; background: rgba(7,56,51,.23); overflow: hidden; }
+    .tier-progress::after { content: ''; display: block; width: 43%; height: 100%; border-radius: inherit; background: var(--ink); }
+    .next-tier { font-size: 11px; line-height: 1.4; color: #4c513d; }
+    .next-tier strong { display: block; font: 700 18px/1.1 Baloo; color: var(--ink); }
+    .profile-row { margin: 0 18px 11px; padding: 14px 15px; background: #fff; border: 1px solid var(--line); border-radius: 20px; display: flex; align-items: center; gap: 12px; }
+    .profile-row strong { display: block; font: 700 18px/1 Baloo; }
+    .profile-row span { display: block; margin-top: 5px; color: var(--ink-soft); font-size: 9px; }
+    .edit { margin-left: auto; color: #9d7825; }
+
+    .page-foot { max-width: 1240px; margin: -30px auto 0; padding: 0 28px 70px; color: var(--ink-soft); font-size: 12px; line-height: 1.6; }
+    .page-foot strong { color: var(--ink); }
+    @media (max-width: 1040px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 680px) {
+      .page-head { grid-template-columns: 1fr; padding-top: 40px; }
+      .draft-pill { justify-self: start; }
+      .gallery { grid-template-columns: 1fr; padding-inline: 16px; gap: 46px; }
+      .concept-meta { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-head">
+    <div>
+      <div class="eyebrow">Website visual direction · round 1</div>
+      <h1>Gymley screen stories</h1>
+      <p class="intro">A staged marketing set using fictional people and conversations. These are deliberately cleaner than raw test captures, but every screen stays grounded in Gymley’s real product rules.</p>
+    </div>
+    <div class="draft-pill">Fictional profiles · no production data</div>
+  </header>
+
+  <main class="gallery">
+    <article class="concept">
+      <div class="concept-meta"><div class="concept-no">01 · ARRIVE</div><h2>Someone catches your eye</h2><p>The gym room, shown with warmer fictional profiles and natural statuses.</p></div>
+      <div class="phone"><div class="screen">
+        <div class="status"><span>9:41</span><span class="signals">▮▮▮ ◉ 100%</span></div>
+        <div class="app-head compact">
+          <div class="avatar sm p4"></div>
+          <div><div style="display:flex;align-items:center;gap:8px"><div class="app-title">Harbour Fit</div><div class="star">☆</div></div><div class="app-sub">6 checked in</div></div>
+          <div class="head-spacer"></div><div class="icon-btn">↗</div>
+        </div>
+        <div class="room-tools"><img src="./ui-wave.png" alt="" /><div><div class="tally"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="quota">3 waves left</div></div><div class="grid-icon"><i></i><i></i><i></i><i></i></div></div>
+        <div class="coverage">Here with you now</div>
+        <div class="people">
+          <div class="person-card"><div class="avatar md p1"></div><div class="person-main"><div class="person-name">Mina</div><div class="person-status">Leg day. Coffee after?</div><div class="photos">▧ 3 photos</div></div><div class="wave-btn"><img src="./ui-wave.png" alt="Wave" /></div></div>
+          <div class="person-card"><div class="avatar md p2"></div><div class="person-main"><div class="person-name">Ethan</div><div class="person-status">Training for my first half marathon.</div><div class="photos">▧ 2 photos</div></div><div class="wave-btn"><img src="./ui-wave.png" alt="Wave" /></div></div>
+          <div class="person-card"><div class="avatar md p3"></div><div class="person-main"><div class="person-name">Sophie</div><div class="person-status">Here for the playlist, staying for the squats.</div><div class="photos">▧ 4 photos</div></div><div class="wave-btn"><img src="./ui-wave.png" alt="Wave" /></div></div>
+        </div>
+        <div class="bottom-nav"><div class="nav-item active"><img src="./ui-tab-room-filled.png" /></div><div class="nav-item"><img src="./ui-tab-chats-outline.png" /></div><div class="nav-item"><img src="./ui-tab-train-outline.png" /></div><div class="nav-item"><img src="./ui-tab-alerts-outline.png" /></div><div class="nav-item"><img src="./ui-tab-fav-outline.png" /></div></div>
+      </div></div>
+    </article>
+
+    <article class="concept">
+      <div class="concept-meta"><div class="concept-no">02 · NOTICE</div><h2>A quiet first move</h2><p>Enough personality to feel human, without turning a profile into an interview.</p></div>
+      <div class="phone"><div class="screen">
+        <div class="status"><span>9:42</span><span class="signals">▮▮▮ ◉ 99%</span></div>
+        <div class="app-head"><span class="profile-back">‹</span><div class="head-spacer"></div><div class="app-title">Profile</div><div class="head-spacer"></div><span style="font-size:23px">•••</span></div>
+        <div class="profile-hero"><div class="avatar lg p1"></div><div class="profile-name">Mina</div><div class="profile-status">Leg day. Coffee after?</div><div class="tag-row"><span class="tag">Morning person</span><span class="tag">Strength</span><span class="tag">Flat white</span></div></div>
+        <div class="profile-note"><div class="lock">✦</div><div><strong style="color:var(--ink)">A little mystery is good.</strong><br />Her full bio and private photos unlock only if you both become Gymates.</div></div>
+        <div class="prompt-card"><div class="prompt-q">The quickest way to make me smile</div><div class="prompt-a">Tell me your most embarrassing gym song.</div></div>
+        <div class="prompt-card"><div class="prompt-q">Usually found</div><div class="prompt-a">Trying to remember which set I’m on.</div></div>
+        <div class="cta"><img src="./ui-wave.png" alt="" /> Send a Wave</div>
+        <div class="micro">She’ll know someone waved—never who, unless the feeling goes both ways.</div>
+      </div></div>
+    </article>
+
+    <article class="concept">
+      <div class="concept-meta"><div class="concept-no">03 · MUTUAL</div><h2>The feeling goes both ways</h2><p>A conversation begins, with the moment tied naturally to today’s visit.</p></div>
+      <div class="phone"><div class="screen match-screen">
+        <div class="status"><span>9:48</span><span class="signals">▮▮▮ ◉ 97%</span></div>
+        <div class="chat-head"><span style="font-size:27px">‹</span><div class="avatar xs p1"></div><div><div class="name">Mina</div><div class="state-pill">WAVEIE · THIS VISIT ONLY</div></div><div class="head-spacer"></div><img src="./ui-add-gymate.png" style="width:29px;height:29px;object-fit:contain" /></div>
+        <div class="match-card"><div class="match-mark"><img src="./ui-gymate-confirmed.png" /></div><div class="match-title">It’s mutual.</div><div class="match-copy">You both waved. That’s usually a pretty good place to start.</div></div>
+        <div class="messages"><div class="bubble them">Okay, I have to ask—what was playing during that last set? 😄</div><div class="bubble me">A very dramatic 2000s playlist.</div><div class="bubble them">Respect. Coffee after cooldown?</div><div class="bubble me">I was hoping you’d ask.</div></div>
+        <div class="moment"><strong>Catch the moment while you’re both here.</strong><br />When either of you leaves, this chat ends—unless you both choose to stay connected.</div>
+        <div class="composer"><div class="field">Write something…</div><div class="send">➤</div></div>
+      </div></div>
+    </article>
+
+    <article class="concept">
+      <div class="concept-meta"><div class="concept-no">04 · HELP</div><h2>Sometimes it starts with a spot</h2><p>Practical, low-pressure and clearly separate from matching.</p></div>
+      <div class="phone"><div class="screen">
+        <div class="status"><span>10:06</span><span class="signals">▮▮▮ ◉ 91%</span></div>
+        <div class="app-head"><div class="avatar sm p4"></div><div class="app-title">Train</div><div class="head-spacer"></div><img src="./ui-program.png" style="width:31px;height:31px;object-fit:contain" /></div>
+        <div class="train-hero"><div class="train-title"><img src="./ui-ask-spot.png" /><strong>Ask a Spot</strong></div><p>Need a hand without interrupting the whole room? Ask someone nearby.</p></div>
+        <div class="spot-card"><div class="spot-person"><div class="avatar sm p2"></div><div><strong>Ethan’s helping</strong><span>Bench · beside the cable station</span></div><div class="accepted">ACCEPTED</div></div><div class="spot-messages"><div class="bubble them">I’m by the blue bench 👍</div><div class="bubble me">Got you—coming over now.</div></div><div class="quick"><span>Found you</span><span>One minute</span><span>Thank you!</span></div></div>
+        <div class="boundary">Just help, no hidden expectations. Spot chats don’t create a Wave or a connection.</div>
+        <div class="section-label">Your training</div>
+        <div class="mini-program"><img src="./ui-program.png" /><div><strong>Push &amp; pull</strong><span>5 exercises · 16 sets</span></div><div class="head-spacer"></div><div class="play">▶</div></div>
+        <div class="bottom-nav"><div class="nav-item"><img src="./ui-tab-room-filled.png" /></div><div class="nav-item"><img src="./ui-tab-chats-outline.png" /></div><div class="nav-item active"><img src="./ui-tab-train-outline.png" /></div><div class="nav-item"><img src="./ui-tab-alerts-outline.png" /></div><div class="nav-item"><img src="./ui-tab-fav-outline.png" /></div></div>
+      </div></div>
+    </article>
+
+    <article class="concept">
+      <div class="concept-meta"><div class="concept-no">05 · TRAIN</div><h2>Here for your workout, too</h2><p>The social side never gets in the way of simply showing up to train.</p></div>
+      <div class="phone"><div class="screen">
+        <div class="status"><span>10:14</span><span class="signals">▮▮▮ ◉ 88%</span></div>
+        <div class="app-head"><span class="profile-back">‹</span><div class="head-spacer"></div><div class="app-title">Programs</div><div class="head-spacer"></div><img src="./ui-program.png" style="width:30px;height:30px;object-fit:contain" /></div>
+        <div class="program-summary"><div class="small">Ready when you are</div><div class="big">Today: Lower body</div><p>Your plan stays organised, so the only thing you need to count is the final rep.</p></div>
+        <div class="section-label">Saved programs</div>
+        <div class="program-list">
+          <div class="program-card"><div class="program-icon"><img src="./ui-program.png" /></div><div><strong>Lower body</strong><span>6 exercises · 19 sets</span></div><div class="play">▶</div></div>
+          <div class="program-card"><div class="program-icon" style="background:#fff0cc"><img src="./ui-program.png" /></div><div><strong>Push &amp; pull</strong><span>5 exercises · 16 sets</span></div><div class="play">▶</div></div>
+          <div class="program-card"><div class="program-icon" style="background:#efe8ff"><img src="./ui-program.png" /></div><div><strong>Quick 30</strong><span>4 exercises · 12 sets</span></div><div class="play">▶</div></div>
+        </div>
+        <div class="new-program">＋ Create a new program</div>
+        <div class="micro" style="margin-top:18px">Drag exercises into the order that feels right. Your program follows you across devices.</div>
+      </div></div>
+    </article>
+
+    <article class="concept">
+      <div class="concept-meta"><div class="concept-no">06 · YOU</div><h2>Your Wave has a personality</h2><p>A private, playful progress moment—not a public popularity contest.</p></div>
+      <div class="phone"><div class="screen">
+        <div class="status"><span>10:23</span><span class="signals">▮▮▮ ◉ 84%</span></div>
+        <div class="app-head"><span class="profile-back">‹</span><div class="head-spacer"></div><div class="app-title">Profile</div><div class="head-spacer"></div><span style="font-size:24px">⚙</span></div>
+        <div class="section-label">Waves received · only you see this</div>
+        <div class="tier-card"><img src="./gymley-wave-level.webp" /><div class="tier-count">68</div><div class="tier-name">Bling</div><div class="tier-progress"></div><div class="next-tier">12 more waves to reach<strong>Rock</strong></div></div>
+        <div class="section-label">My status</div>
+        <div class="profile-row"><div class="avatar sm p4"></div><div><strong>Alex</strong><span>Training, but open to a hello.</span></div><div class="edit">✎</div></div>
+        <div class="profile-row"><div style="width:52px;height:52px;border-radius:16px;background:var(--mint-soft);display:grid;place-items:center">♡</div><div><strong>Your Gymates</strong><span>The people who both chose to stay.</span></div><div class="edit">›</div></div>
+        <div class="micro">No leaderboard. No public score. Just a small reminder that saying hello gets easier.</div>
+      </div></div>
+    </article>
+  </main>
+
+  <footer class="page-foot"><strong>For review:</strong> names, photos and conversations are fictional. The first four profile portraits were generated specifically for this marketing draft. No Supabase records or production accounts were changed.</footer>
+</body>
+</html>
