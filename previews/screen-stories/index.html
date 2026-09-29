@@ -113,7 +113,7 @@
     .p4 { background-position: 100% 100%; }
     .avatar.xs { width: 34px; height: 34px; border-radius: 12px; }
     .avatar.sm { width: 52px; height: 52px; }
-    .avatar.md { width: 72px; height: 72px; border-radius: 23px; }
+    .avatar.md { width: 62px; height: 62px; border-radius: 20px; }
     .avatar.lg { width: 116px; height: 116px; border-radius: 36px; }
     .icon-btn { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; border: 1px solid #e1d6b8; background: rgba(255,255,255,.66); }
     .icon-btn img { width: 23px; height: 23px; object-fit: contain; }
@@ -127,14 +127,14 @@
     .grid-icon { margin-left: auto; width: 37px; height: 37px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 7px; }
     .grid-icon i { border: 1.7px solid var(--ink); border-radius: 3px; }
     .coverage { margin: 0 22px 8px; padding-top: 10px; border-top: 1px solid rgba(7,56,51,.12); font: 600 10px/1 Inter; letter-spacing: .14em; color: var(--ink-soft); text-transform: uppercase; }
-    .people { display: grid; gap: 10px; padding: 8px 18px 72px; }
-    .person-card { display: flex; align-items: center; gap: 14px; min-height: 93px; padding: 14px 14px; border: 1px solid #e4e5de; border-radius: 23px; background: rgba(255,255,255,.86); box-shadow: 0 8px 20px rgba(7,56,51,.07); }
+    .people { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 6px 14px 72px; }
+    .person-card { width: 100%; min-width: 0; display: flex; align-items: center; gap: 10px; min-height: 80px; padding: 9px 10px; border: 1px solid #e4e5de; border-radius: 21px; background: rgba(255,255,255,.86); box-shadow: 0 8px 20px rgba(7,56,51,.07); }
     .person-main { min-width: 0; flex: 1; }
-    .person-name { font: 700 21px/1.1 Baloo; }
-    .person-status { margin-top: 5px; color: var(--ink-soft); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .photos { margin-top: 7px; color: #9aa49f; font-size: 10px; }
-    .wave-btn { width: 45px; height: 45px; border-radius: 50%; display: grid; place-items: center; background: #fffaf0; border: 1.5px solid var(--gold); }
-    .wave-btn img { width: 25px; height: 25px; object-fit: contain; }
+    .person-name { font: 700 19px/1.05 Baloo; }
+    .person-status { margin-top: 3px; color: var(--ink-soft); font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .photos { margin-top: 4px; color: #9aa49f; font-size: 9px; }
+    .wave-btn { flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #fffaf0; border: 1.5px solid var(--gold); }
+    .wave-btn img { width: 23px; height: 23px; object-fit: contain; }
     .bottom-nav { position: absolute; z-index: 20; left: 0; right: 0; bottom: 0; height: 63px; display: flex; justify-content: space-around; align-items: center; border-top: 1px solid #e2e2dc; background: rgba(255,255,255,.96); }
     .nav-item { position: relative; width: 48px; display: grid; place-items: center; }
     .nav-item img { width: 25px; height: 25px; object-fit: contain; opacity: .58; }
@@ -211,15 +211,38 @@
     .play { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: white; font-size: 12px; }
     .new-program { margin: 14px 18px 0; height: 49px; display: grid; place-items: center; border: 1.5px dashed #c19f4c; border-radius: 17px; color: #7f651f; font: 700 15px/1 Baloo; }
 
-    /* Wave tier */
-    .tier-card { margin: 8px 18px 14px; padding: 17px 20px 18px; border-radius: 29px; background: linear-gradient(160deg, #ffbd1e, #f3a400); border: 2px solid #e49b00; box-shadow: 0 12px 25px rgba(202,139,0,.2); text-align: center; }
-    .tier-card img { width: 150px; height: 150px; object-fit: contain; margin: -3px auto -8px; }
-    .tier-count { font: 700 51px/.9 Baloo; }
-    .tier-name { display: inline-block; margin-top: 12px; padding: 8px 18px; border-radius: 999px; background: var(--ink); color: var(--gold-soft); font: 600 10px/1 Inter; letter-spacing: .14em; text-transform: uppercase; }
-    .tier-progress { height: 6px; margin: 18px 4px 11px; border-radius: 99px; background: rgba(7,56,51,.23); overflow: hidden; }
-    .tier-progress::after { content: ''; display: block; width: 43%; height: 100%; border-radius: inherit; background: var(--ink); }
-    .next-tier { font-size: 11px; line-height: 1.4; color: #4c513d; }
-    .next-tier strong { display: block; font: 700 18px/1.1 Baloo; color: var(--ink); }
+    /* Wave tier — mirrors the current collectible/trading-card component. */
+    .tier-card { margin: 6px 15px 14px; padding: 13px; border-radius: 27px; background: #ff83b7; border: 2px solid var(--ink); box-shadow: 0 12px 25px rgba(86,25,55,.16); display: grid; gap: 10px; }
+    .tier-level-head { min-height: 39px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .level-heading { flex: 1; display: grid; gap: 5px; }
+    .level-rail { height: 9px; display: flex; gap: 3px; padding: 0 2px; }
+    .level-rail i { flex: 1; height: 9px; border-radius: 2px; background: rgba(7,56,51,.22); transform: skewX(-16deg); }
+    .level-rail i.on { background: var(--ink); }
+    .level-copy { font: 600 9px/1 Inter; letter-spacing: .12em; }
+    .profile-stamp { width: 39px; height: 39px; flex: 0 0 auto; border-radius: 50%; border: 2px solid var(--ink); overflow: hidden; }
+    .tier-art { position: relative; height: 267px; overflow: hidden; display: grid; place-items: center; border: 1.5px solid var(--ink); border-radius: 19px; background-color: #ffc5db; background-image: repeating-linear-gradient(0deg, transparent 0 46px, rgba(7,56,51,.09) 47px 48px), repeating-linear-gradient(90deg, transparent 0 57px, rgba(7,56,51,.09) 58px 59px); }
+    .tier-art::before { content: ''; position: absolute; width: 128px; height: 128px; left: -46px; bottom: -42px; border: 13px solid rgba(155,22,82,.13); border-radius: 50%; box-shadow: inset 0 0 0 24px #ffc5db, inset 0 0 0 34px rgba(155,22,82,.15); }
+    .tier-art::after { content: '••••\A••••\A••••'; white-space: pre; position: absolute; right: 13px; bottom: 11px; color: rgba(155,22,82,.22); font: 700 23px/.48 Inter; letter-spacing: 3px; }
+    .corner-stripes { position: absolute; top: 16px; right: 12px; display: grid; gap: 5px; transform: rotate(-12deg); opacity: .36; }
+    .corner-stripes i { width: 34px; height: 6px; border-radius: 4px; background: #9b1652; }
+    .tier-hand { position: relative; z-index: 2; width: 82%; height: 86%; object-fit: contain; }
+    .tier-summary { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+    .tier-name { min-width: 0; flex: 1; font: 700 34px/.95 Baloo; white-space: nowrap; }
+    .wave-count-block { max-width: 110px; padding-bottom: 2px; text-align: right; }
+    .wave-stat-label { color: #52645f; font: 600 8px/1.25 Inter; }
+    .tier-count { font: 700 30px/1 Baloo; }
+    .progress-panel { position: relative; overflow: hidden; padding: 11px 11px 10px 16px; border: 1.5px solid #9b1652; border-radius: 18px; background: rgba(255,255,255,.66); }
+    .progress-panel::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 7px; background: #9b1652; }
+    .progress-hero { display: flex; align-items: center; gap: 8px; }
+    .progress-copy { flex: 1; font-size: 11px; font-weight: 600; line-height: 1.25; }
+    .progress-target { display: block; margin-top: 3px; font: 700 21px/1 Baloo; }
+    .progress-target b { color: #9b1652; margin-right: 7px; }
+    .next-hand { width: 62px; height: 62px; object-fit: contain; }
+    .tier-progress { height: 11px; margin-top: 9px; overflow: hidden; border: 1px solid var(--ink); border-radius: 7px; background: rgba(7,56,51,.17); }
+    .tier-progress::after { content: ''; display: block; width: 40%; height: 100%; border-radius: 6px; background: #9b1652; }
+    .share-tier { min-height: 45px; display: flex; align-items: center; gap: 9px; padding: 6px 9px; border: 1.5px solid var(--ink); border-radius: 18px; background: rgba(255,255,255,.77); font-size: 11px; font-weight: 600; }
+    .share-mark { width: 30px; height: 30px; border-radius: 10px; display: grid; place-items: center; background: var(--ink); color: var(--cream); }
+    .share-tier .arrow { margin-left: auto; font-size: 18px; }
     .profile-row { margin: 0 18px 11px; padding: 14px 15px; background: #fff; border: 1px solid var(--line); border-radius: 20px; display: flex; align-items: center; gap: 12px; }
     .profile-row strong { display: block; font: 700 18px/1 Baloo; }
     .profile-row span { display: block; margin-top: 5px; color: var(--ink-soft); font-size: 9px; }
@@ -329,12 +352,16 @@
       <div class="phone"><div class="screen">
         <div class="status"><span>10:23</span><span class="signals">▮▮▮ ◉ 84%</span></div>
         <div class="app-head"><span class="profile-back">‹</span><div class="head-spacer"></div><div class="app-title">Profile</div><div class="head-spacer"></div><span style="font-size:24px">⚙</span></div>
-        <div class="section-label">Waves received · only you see this</div>
-        <div class="tier-card"><img src="./gymley-wave-level.webp" /><div class="tier-count">68</div><div class="tier-name">Bling</div><div class="tier-progress"></div><div class="next-tier">12 more waves to reach<strong>Rock</strong></div></div>
-        <div class="section-label">My status</div>
-        <div class="profile-row"><div class="avatar sm p4"></div><div><strong>Alex</strong><span>Training, but open to a hello.</span></div><div class="edit">✎</div></div>
-        <div class="profile-row"><div style="width:52px;height:52px;border-radius:16px;background:var(--mint-soft);display:grid;place-items:center">♡</div><div><strong>Your Gymates</strong><span>The people who both chose to stay.</span></div><div class="edit">›</div></div>
-        <div class="micro">No leaderboard. No public score. Just a small reminder that saying hello gets easier.</div>
+        <div class="tier-card">
+          <div class="tier-level-head">
+            <div class="level-heading"><div class="level-rail"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="level-copy">LVL 04</div></div>
+            <div class="profile-stamp avatar p4"></div>
+          </div>
+          <div class="tier-art"><div class="corner-stripes"><i></i><i></i><i></i></div><img class="tier-hand" src="./gymley-wave-level.webp" /></div>
+          <div class="tier-summary"><div class="tier-name">Bling</div><div class="wave-count-block"><div class="wave-stat-label">All time waves received</div><div class="tier-count">68</div></div></div>
+          <div class="progress-panel"><div class="progress-hero"><div class="progress-copy">12 more waves to reach<span class="progress-target"><b>→</b>Rock</span></div><img class="next-hand" src="./gymley-wave-next-level.webp" /></div><div class="tier-progress"></div></div>
+          <div class="share-tier"><span class="share-mark">↗</span><span>Share wave tier</span><span class="arrow">↗</span></div>
+        </div>
       </div></div>
     </article>
   </main>
