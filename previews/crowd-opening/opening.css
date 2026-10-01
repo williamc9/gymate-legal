@@ -1,0 +1,62 @@
+@font-face{font-family:Baloo;src:url('assets/Baloo2-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:Inter;src:url('assets/Inter-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+:root{color-scheme:light;--ink:#093a33;--yellow:#ffb100;--muted:#64706c}
+*{box-sizing:border-box}
+html,body{margin:0;min-width:280px;background:#fff;color:var(--ink)}
+body{font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid #08785d;outline-offset:5px}
+.opening{position:relative;display:flex;flex-direction:column;min-height:760px;min-height:max(760px,100svh);overflow:clip;isolation:isolate}
+.masthead{position:relative;z-index:3;width:100%;max-width:1680px;margin:0 auto;padding:24px clamp(22px,4.5vw,80px);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#b97b00;text-decoration:none;font:700 29px/1 Baloo,Arial,sans-serif}
+.brand img{display:block;width:44px;height:44px;border-radius:13px}
+.motion-control{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 15px;border:1px solid #e0e6e3;border-radius:24px;color:#42564e;background:#ffffffeb;cursor:pointer;font-size:13px}
+.motion-control:hover{background:#f3f7f5}
+.motion-symbol{display:block;width:13px;font-size:17px;line-height:1;letter-spacing:-2px}
+.motion-control[aria-pressed=true] .motion-symbol{font-size:11px;letter-spacing:0}
+.invitation{position:relative;z-index:2;flex:none;padding:clamp(14px,3.7vh,40px) 20px 8px;text-align:center}
+h1{margin:0 auto;font:700 clamp(48px,5.65vw,92px)/1.05 Baloo,Arial,sans-serif;letter-spacing:-.035em}
+h1 span{display:block}
+.headline-benefit{color:var(--ink)}
+.headline-benefit::first-letter{color:inherit}
+.mobile-break{display:none}
+.invitation p{margin:18px 0 0;color:#5b6e66;font-size:clamp(15px,1.25vw,19px);line-height:1.6}
+.gym-scene{position:relative;flex:1;min-height:445px;width:100%;margin-top:10px;overflow:hidden}
+.gym-backdrop{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.gym-backdrop img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 51%;opacity:.76}
+.gym-backdrop::after{position:absolute;inset:0;content:'';background:linear-gradient(to bottom,#fff 0,rgba(255,255,255,.92) 3%,rgba(255,255,255,.2) 17%,transparent 32%,transparent 72%,#fff 100%)}
+#crowd{position:absolute;inset:auto 0 0;display:block;width:100%;height:clamp(275px,39vh,430px)}
+.credits{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:16px clamp(22px,4.5vw,80px);color:#77827c;font-size:11px;line-height:1.7;background:#fff}
+.credits>span:first-child{color:var(--ink);font-family:Baloo;font-size:17px}
+.credits a{color:inherit;text-underline-offset:3px}
+@media(min-width:1600px){.gym-scene{min-height:510px}.gym-backdrop img{object-position:center 57%}}
+@media(min-width:700px) and (max-width:1050px){
+  .opening{min-height:max(800px,100svh)}
+  .masthead{padding:24px 32px}
+  .invitation{padding-top:30px}
+  h1{font-size:clamp(47px,6.9vw,70px)}
+  .gym-scene{min-height:490px;margin-top:26px}
+  .gym-backdrop img{object-position:43% 50%}
+  #crowd{height:clamp(320px,40vh,440px)}
+}
+@media(max-width:699px){
+  .opening{min-height:max(720px,100svh)}
+  .masthead{padding:18px 20px}
+  .brand{font-size:26px}.brand img{width:39px;height:39px;border-radius:12px}
+  .motion-control{width:44px;padding:0}.motion-label{display:none}
+  .invitation{padding:22px 18px 0}
+  h1{font-size:clamp(36px,10.2vw,65px);line-height:1.03;letter-spacing:-.028em}
+  .mobile-break{display:block}
+  .headline-benefit{margin:10px auto 0;max-width:12ch;color:#09604a}
+  .invitation p{font-size:15px;margin-top:16px}
+  .gym-scene{min-height:340px;margin-top:20px}
+  .gym-backdrop img{width:850px;max-width:none;height:100%;position:absolute;left:50%;transform:translateX(-43%);object-fit:cover;object-position:center 58%}
+  .gym-backdrop::after{background:linear-gradient(to bottom,#fff,rgba(255,255,255,.75) 5%,transparent 21%,transparent 70%,#fff 100%)}
+  #crowd{height:clamp(245px,35svh,330px)}
+  .credits{padding:13px 20px;font-size:10px}.credits>span:first-child{font-size:15px}
+}
+@media(max-width:359px){.invitation{padding-top:13px}h1{font-size:36px}.invitation p{font-size:14px}.opening{min-height:700px}}
+@media(max-height:550px) and (min-width:600px){
+  .opening{min-height:650px}.masthead{padding-block:12px}.invitation{padding-top:5px}h1{font-size:48px}.gym-scene{min-height:365px;margin-top:0}#crowd{height:275px}
+}
