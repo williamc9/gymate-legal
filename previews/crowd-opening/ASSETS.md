@@ -32,3 +32,13 @@ Visual approach inspired by the user-selected Cinematic Landing Hero: https://21
 Phone portraits reuse the fictional generated `../website/assets/profiles.webp` sheet (Ethan top-right, Mina top-left). The Wave and Add Gymate icons reuse existing app assets from the same folder. The staged conversation is illustrative, not a real user's chat.
 
 The desktop layout places text beside the phone; mobile places it above. Scroll, touch, keyboard scrolling and four accessible moment buttons share the same progress state. Reduced-motion, missing JavaScript/GSAP, and short landscape windows show a readable completed chat in normal document flow instead of pinning or clipping the phone. No database or real app data is used.
+
+## Full one-phone journey
+
+The approved pacing sample is extended into seven chapters: anonymous Wave arrival in the room; independently noticing Mina and viewing her profile; sending a Wave; mutual reveal; three-message Waveie chat; both people choosing to add each other as Gymates; the same conversation continuing later that evening. Seven moment buttons navigate the same reversible timeline as scrolling.
+
+The anonymous notice contains no name or identifying portrait. It disappears before the room highlights Mina as the viewer's choice. The temporary-chat rule is caption copy beside the Waveie conversation, not a separate departure scene. The connection card first shows only the viewer adding Mina, then Mina's independent choice, and only then the Gymate confirmation. The ending uses a retained earlier message, a later-evening timestamp and new messages to demonstrate continuity.
+
+No new generated assets or libraries. Room icons and all four fictional portraits are reused from the existing website assets. The crowd opening remains unchanged. Short portrait phones use a wider compact phone with two room cards and reduced decorative chrome. Reduced-motion, unavailable scripting and windows too short for pinning retain a completed chat plus a normal-flow six-point transcript of the full story.
+
+Verified in the in-app browser at desktop 1440×1000, iPad 820×1180, narrow phone 320×740 and short phone 390×667: anonymous state, profile/Wave confirmation, sequential messages, separate Gymate decisions, later messages, reverse scrolling, no horizontal overflow, card/navigation and connection-panel bounds. Script syntax and Git whitespace checks pass. This is a staged marketing journey, not a live app or backend change.

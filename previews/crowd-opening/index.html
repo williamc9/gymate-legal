@@ -10,10 +10,10 @@
   <link rel="preload" as="font" href="assets/Baloo2-Bold.ttf" type="font/ttf" crossorigin>
   <link rel="preload" as="image" href="assets/gym-room-colour.png">
   <link rel="stylesheet" href="opening.css?v=2">
-  <link rel="stylesheet" href="story.css?v=1">
+  <link rel="stylesheet" href="story.css?v=2">
   <script defer src="assets/gsap.min.js"></script>
   <script defer src="crowd.js"></script>
-  <script defer src="story.js?v=1"></script>
+  <script defer src="story.js?v=2"></script>
 </head>
 <body>
   <main>
@@ -37,16 +37,22 @@
       <div class="story-copy">
         <p class="story-eyebrow">ONE LITTLE WAVE.</p>
         <div class="story-captions">
-          <div class="story-caption" data-caption="0"><h2>Oh.<br> They noticed<br><em>you too.</em></h2><p>You both Waved.<br> Now you both know.</p></div>
-          <div class="story-caption" data-caption="1"><h2>The first hello.<br><em>Already easier.</em></h2><p>A little less overthinking.<br> A little more you.</p></div>
-          <div class="story-caption" data-caption="2"><h2>Look at you.<br><em>Talking already.</em></h2><p>No perfect opening line needed.</p></div>
-          <div class="story-caption" data-caption="3"><h2>Same gym.<br><em>New possibility.</em></h2><p>Catch the moment while you’re both here.</p></div>
+          <div class="story-caption" data-caption="0"><h2>Someone’s glad<br><em>you showed up.</em></h2><p>A Wave just arrived.<br> Who from? That stays a little mystery.</p></div>
+          <div class="story-caption" data-caption="1"><h2>Who caught<br><em>your eye?</em></h2><p>Have a look around.<br> No clues. Just someone you’d like to know.</p></div>
+          <div class="story-caption" data-caption="2"><h2>A little hello.<br><em>No big entrance.</em></h2><p>No speech to rehearse.<br> Just a Wave.</p></div>
+          <div class="story-caption" data-caption="3"><h2>Oh.<br> They noticed<br><em>you too.</em></h2><p>You both chose each other.<br> Now you both know.</p></div>
+          <div class="story-caption" data-caption="4"><h2>Look at you.<br><em>Talking already.</em></h2><p>Enjoy the moment. This chat disappears when either of you leaves the gym room.</p></div>
+          <div class="story-caption" data-caption="5"><h2>Some hellos<br><em>deserve a next time.</em></h2><p>Want to keep talking? Become Gymates to keep the conversation going.</p></div>
+          <div class="story-caption" data-caption="6"><h2>The workout ends.<br><em>This doesn’t have to.</em></h2><p>You both chose to stay connected.<br> Same chat. Even after the gym.</p></div>
         </div>
         <nav class="story-steps" aria-label="Conversation moments">
-          <button type="button" data-step="0" aria-label="See the mutual Wave" aria-current="step"><span>01</span></button>
-          <button type="button" data-step="1" aria-label="See the first message"><span>02</span></button>
-          <button type="button" data-step="2" aria-label="See the reply"><span>03</span></button>
-          <button type="button" data-step="3" aria-label="See the last message"><span>04</span></button>
+          <button type="button" data-step="0" aria-label="See the anonymous Wave" aria-current="step"><span>01</span></button>
+          <button type="button" data-step="1" aria-label="Meet someone in the room"><span>02</span></button>
+          <button type="button" data-step="2" aria-label="Send a Wave"><span>03</span></button>
+          <button type="button" data-step="3" aria-label="See the mutual Wave"><span>04</span></button>
+          <button type="button" data-step="4" aria-label="See the Waveie conversation"><span>05</span></button>
+          <button type="button" data-step="5" aria-label="Become Gymates"><span>06</span></button>
+          <button type="button" data-step="6" aria-label="Keep talking after the gym"><span>07</span></button>
         </nav>
         <p class="scroll-note">Keep scrolling. Let it happen.</p>
       </div>
@@ -54,14 +60,34 @@
         <div class="story-phone" aria-label="Illustrative Gymley conversation between Mina and Ethan">
           <div class="phone-status" aria-hidden="true"><span>9:41</span><span class="phone-island"></span><span>▮▮▮ ▰</span></div>
           <div class="phone-content">
-            <div class="mutual-screen">
+            <div class="room-screen story-screen" data-screen="room">
+              <div class="journey-room-head"><div class="story-portrait ethan" role="img" aria-label="You, Ethan"></div><div><h3>Harbour Fit</h3><p>4 CHECKED IN</p></div><img src="../website/assets/leave.png" alt="Leave gym"></div>
+              <div class="room-wave-quota"><img src="../website/assets/wave.png" alt=""><span><b>● ● ●</b><small>3 WAVES LEFT</small></span></div>
+              <p class="room-label">HERE WITH YOU</p>
+              <div class="room-people">
+                <div class="room-person"><div class="story-portrait sophie" role="img" aria-label="Sophie"></div><div><h4>Sophie</h4><p>One more rep. Probably.</p></div><img src="../website/assets/wave.png" alt=""></div>
+                <div class="room-person mina-card"><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h4>Mina</h4><p>Leg day. Then a little treat.</p></div><img src="../website/assets/wave.png" alt=""></div>
+                <div class="room-person"><div class="story-portrait kai" role="img" aria-label="Kai"></div><div><h4>Kai</h4><p>Here for the good energy.</p></div><img src="../website/assets/wave.png" alt=""></div>
+              </div>
+              <div class="anonymous-wave"><img src="../website/assets/wave.png" alt=""><div><small>GYMLEY · JUST NOW</small><strong>Someone Waved at you.</strong><span>A little mystery. A nice feeling.</span></div></div>
+              <div class="demo-room-tabs" aria-hidden="true"><img src="../website/assets/tab-room.png" alt=""><img src="../website/assets/tab-chats.png" alt=""><img src="../website/assets/tab-train.png" alt=""><img src="../website/assets/tab-alerts.png" alt=""><img src="../website/assets/tab-fav.png" alt=""></div>
+            </div>
+            <div class="profile-screen story-screen" data-screen="profile">
+              <div class="profile-heading"><span aria-hidden="true">‹</span><h3>A familiar face?</h3></div>
+              <div class="profile-picture story-portrait mina" role="img" aria-label="Mina at the gym"></div>
+              <h3 class="profile-name">Mina</h3><p class="profile-intro">Leg day. Then a little treat.</p>
+              <div class="profile-interests"><span>Strength</span><span>Morning person</span><span>Coffee</span></div>
+              <div class="profile-wave"><img src="../website/assets/wave.png" alt=""><span class="wave-before">Wave to Mina</span><span class="wave-after">Wave sent</span></div>
+              <p class="profile-privacy">Only a mutual Wave reveals who Waved.</p>
+            </div>
+            <div class="mutual-screen story-screen" data-screen="mutual">
               <p class="phone-kicker">A LITTLE WAVE BACK</p>
               <div class="mutual-faces"><div class="story-portrait ethan" role="img" aria-label="Ethan"></div><div class="story-portrait mina" role="img" aria-label="Mina"></div><span class="mutual-wave"><img src="../website/assets/wave.png" alt=""></span></div>
               <h3>It’s mutual.</h3>
               <p>You and Mina<br>Waved at each other.</p>
               <div class="hello-pill">A hello starts here.</div>
             </div>
-            <div class="chat-screen">
+            <div class="chat-screen story-screen" data-screen="chat">
               <div class="demo-chat-head"><span aria-hidden="true">‹</span><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h3>Mina</h3><p>WAVEIE · THIS VISIT</p></div><img src="../website/assets/add-gymate.png" alt=""></div>
               <div class="chat-mutual"><img src="../website/assets/wave.png" alt=""> You both Waved. Say hi.</div>
               <div class="demo-messages">
@@ -70,12 +96,35 @@
                 <div class="story-message incoming" data-message="2"><span class="sr-only">Mina: </span>One more set.<br>Then you’re on.</div>
               </div>
               <div class="demo-composer" aria-hidden="true"><span>Say something…</span><span>↑</span></div>
+              <div class="gymate-choice">
+                <img class="choice-icon" src="../website/assets/add-gymate.png" alt="">
+                <h3>Keep this going?</h3>
+                <p>It takes two to become Gymates.</p>
+                <div class="choice-row"><div class="story-portrait ethan" role="img" aria-label="You"></div><strong>You</strong><span class="choice-initial">Add Gymate</span><span class="choice-yes you-yes">Added Mina ✓</span></div>
+                <div class="choice-row"><div class="story-portrait mina" role="img" aria-label="Mina"></div><strong>Mina</strong><span class="choice-wait">Her choice, too.</span><span class="choice-yes mina-yes">Added you ✓</span></div>
+                <div class="gymate-confirmation"><img src="../website/assets/gymate-confirmed.png" alt=""><strong>You’re Gymates.</strong><span>This chat is staying.</span></div>
+              </div>
+            </div>
+            <div class="later-screen chat-screen story-screen" data-screen="later">
+              <div class="demo-chat-head"><span aria-hidden="true">‹</span><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h3>Mina</h3><p>GYMATE</p></div><img src="../website/assets/gymate-confirmed.png" alt="Gymates"></div>
+              <div class="chat-mutual">A hello worth keeping.</div>
+              <div class="demo-messages">
+                <div class="story-message incoming history-message"><span class="sr-only">Earlier, Mina: </span>One more set.<br>Then you’re on.</div>
+                <div class="later-time">LATER THAT EVENING</div>
+                <div class="story-message incoming late-message" data-late="0"><span class="sr-only">Mina: </span>Same time tomorrow?</div>
+                <div class="story-message outgoing late-message" data-late="1"><span class="sr-only">You: </span>Wouldn’t miss it. <span class="bubble-emoji">😊</span></div>
+              </div>
+              <div class="demo-composer" aria-hidden="true"><span>Say something…</span><span>↑</span></div>
             </div>
           </div>
           <div class="home-indicator" aria-hidden="true"></div>
         </div>
         <p class="phone-footnote">A little preview of what could happen.</p>
       </div>
+    </div>
+    <div class="story-transcript">
+      <h2>One little Wave. A hello worth keeping.</h2>
+      <ol><li>A Wave arrives anonymously. The sender’s identity stays private.</li><li>You notice Mina in the gym room and choose to Wave.</li><li>It’s mutual: Mina independently chose you, too.</li><li>You start chatting as Waveies. This chat disappears when either of you leaves the gym room.</li><li>You add Mina as a Gymate. Mina chooses to add you, too. Only then are you Gymates.</li><li>Later that evening, the same conversation continues—even after the gym.</li></ol>
     </div>
   </section>
   </main>
