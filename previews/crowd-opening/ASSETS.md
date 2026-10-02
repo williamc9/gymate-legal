@@ -42,3 +42,30 @@ The anonymous notice contains no name or identifying portrait. It disappears bef
 No new generated assets or libraries. Room icons and all four fictional portraits are reused from the existing website assets. The crowd opening remains unchanged. Short portrait phones use a wider compact phone with two room cards and reduced decorative chrome. Reduced-motion, unavailable scripting and windows too short for pinning retain a completed chat plus a normal-flow six-point transcript of the full story.
 
 Verified in the in-app browser at desktop 1440×1000, iPad 820×1180, narrow phone 320×740 and short phone 390×667: anonymous state, profile/Wave confirmation, sequential messages, separate Gymate decisions, later messages, reverse scrolling, no horizontal overflow, card/navigation and connection-panel bounds. Script syntax and Git whitespace checks pass. This is a staged marketing journey, not a live app or backend change.
+
+## Gym tools and neighbourhood preview — 3 October 2026
+
+Two additional sections follow the approved opening and seven-chapter journey. Their existing CSS and JavaScript are unchanged. `playground.css` and `playground.js` provide isolated styles and interactions without new dependencies. These are illustrative marketing interactions, not app changes or real requests.
+
+The bench's dumbbells, notebook and stopwatch are tappable, with equivalent keyboard-accessible tabs. The spot demo reveals Mina's reply; the notebook moves exercises upwards with a short transition; the stopwatch runs an eight-second sample countdown. The countdown pauses when hidden, offscreen or another tool is selected. Reduced-motion preferences disable decorative transitions.
+
+The neighbourhood offers 2/10/20 km sample coverage, four fictional gyms and check-in counts. Tapping a gym places a small Open Peeps crowd on the map and shows its sample count below. Counts represent fictional Gymley check-ins, not total gym occupancy. No actual location, demographic data, API or backend is used. Gender/age breakdowns are not included. Map and numbers are explicitly labelled illustrative, not live, and not to scale.
+
+### New illustration assets
+
+Created with the image-generation skill and built-in image-generation tool, inspected visually, and used as lazy-loaded 1536×1024 PNGs. Both are original generated artwork; the moving/snapshot people remain the existing Open Peeps sprite.
+
+- `assets/gym-bench.png` (1,328,107 bytes). Original: `C:/Users/user/.codex/generated_images/01a0f818-7672-7532-83e6-a2aa52dab278/exec-60747f86-cf4d-425e-8aff-ea66fa777c5e.png`.
+- `assets/gym-neighbourhood.png` (2,005,793 bytes). Original: `C:/Users/user/.codex/generated_images/01a0f818-7672-7532-83e6-a2aa52dab278/exec-47588cce-3ae6-4309-bcc8-5f66676bbd78.png`.
+
+Bench generation prompt:
+
+> Create one standalone landscape editorial illustration for Gymley, a friendly gym social app. Asset will sit under three interactive HTML labels, so NO typography or interface. Wide landscape 1536x1024 composition, clean pure white background. Simple playful hand-drawn pen outlines like Open Peeps, organic black contours with flat mint green, sunny golden yellow and soft ivory fills, occasional black accents. A long low gym changing-room bench seen from slightly above, positioned across the lower-middle of the canvas. On the left end a pair of substantial charcoal dumbbells with yellow details; at the centre an open mint-covered workout notebook showing just a few abstract horizontal ink lines and a yellow pencil; at the right a large friendly yellow analogue stopwatch standing upright against a folded mint gym towel. Make these THREE main groups clearly separated horizontally, easy to recognize even scaled down. Sparse gym context only: one small potted plant behind the bench at far left and a faint locker outline at far right, lots of breathing room. Objects should be chunky and charming, not photorealistic or 3D, no gradients, no text, no people, no logos, no decorative border. The bench has pale golden timber and simple black metal legs. Objects in roughly equal visual weight. White background must blend seamlessly into white webpage.
+
+Neighbourhood generation prompt:
+
+> Create one standalone landscape neighbourhood map illustration for Gymley, a playful gym social app website. 1536x1024. A whimsical simplified bird's-eye/isometric hybrid neighbourhood, hand-drawn black pen outlines in the Open Peeps editorial style, flat cheerful mint parks, golden-yellow accents, warm pale ivory streets and light sky-blue waterfront in upper-left corner. Four small recognisable gym buildings distributed around the centre: one at centre around x50% y55%, one nearby at x37% y65%, one above-left x39% y28%, one right x77% y42%. Gym buildings use dumbbell pictograms ONLY, no written lettering. Connect with wide winding streets, few mint trees, small simple other buildings and a tiny cafe. Leave generous open space between the main buildings so website overlays can add circular coverage rings, clickable location labels and people. This is an illustrative fictional map, NOT a real city or precise navigation map. Entire composition readable on mobile, no microscopic detail. Background pale warm ivory #fff9eb. Flat colours, organic confident black contours, no photorealism, no 3D rendering, no gradients, no shadows, no compass, no labels, no words, no numbers, no pins, no people, no circles or coverage rings (those come from code).
+
+### Verification
+
+Browser-checked at 1440×1000, 820×1180, 390×844 and 320×740 without horizontal overflow. Verified illustrated notebook hotspot, spot response, exercise reordering and disabled first-row control, keyboard tab navigation, timer completion/pause, coverage totals, selected-gym crowd counts and resetting an out-of-range selection. No browser warnings/errors observed. JavaScript syntax and Git whitespace checks pass. No app build, legal-page changes or backend writes.

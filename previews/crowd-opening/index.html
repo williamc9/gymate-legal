@@ -11,9 +11,11 @@
   <link rel="preload" as="image" href="assets/gym-room-colour.png">
   <link rel="stylesheet" href="opening.css?v=2">
   <link rel="stylesheet" href="story.css?v=2">
+  <link rel="stylesheet" href="playground.css?v=1">
   <script defer src="assets/gsap.min.js"></script>
   <script defer src="crowd.js"></script>
   <script defer src="story.js?v=2"></script>
+  <script defer src="playground.js?v=1"></script>
 </head>
 <body>
   <main>
@@ -126,6 +128,60 @@
       <h2>One little Wave. A hello worth keeping.</h2>
       <ol><li>A Wave arrives anonymously. The sender’s identity stays private.</li><li>You notice Mina in the gym room and choose to Wave.</li><li>It’s mutual: Mina independently chose you, too.</li><li>You start chatting as Waveies. This chat disappears when either of you leaves the gym room.</li><li>You add Mina as a Gymate. Mina chooses to add you, too. Only then are you Gymates.</li><li>Later that evening, the same conversation continues—even after the gym.</li></ol>
     </div>
+  </section>
+  <section class="gym-playground" id="gym-tools" aria-labelledby="tools-title">
+    <div class="play-heading"><p class="play-eyebrow">FOR THE WORKOUT, TOO.</p><h2 id="tools-title">A little help<br><em>between hellos.</em></h2><p>Pick something from the bench. Give it a try.</p></div>
+    <div class="bench-layout">
+      <div class="bench-scene">
+        <div class="bench-art"><img class="bench-illustration" src="assets/gym-bench.png" width="1536" height="1024" loading="lazy" alt="A hand-drawn gym bench with dumbbells, a workout notebook and a yellow stopwatch."><button class="bench-object object-weight" type="button" data-pick-tool="spot" aria-label="Try Ask a spot with the dumbbells"></button><button class="bench-object object-notebook" type="button" data-pick-tool="program" aria-label="Open the workout notebook"></button><button class="bench-object object-watch" type="button" data-pick-tool="rest" aria-label="Try the stopwatch"></button></div>
+        <div class="bench-tabs" role="tablist" aria-label="Try a gym tool">
+          <button type="button" role="tab" id="tab-spot" aria-controls="panel-spot" aria-selected="true" data-tool="spot"><span>01</span>Ask a spot</button>
+          <button type="button" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="false" tabindex="-1" data-tool="program"><span>02</span>Your program</button>
+          <button type="button" role="tab" id="tab-rest" aria-controls="panel-rest" aria-selected="false" tabindex="-1" data-tool="rest"><span>03</span>Rest timer</button>
+        </div>
+      </div>
+      <div class="tool-stage">
+        <div class="tool-panel spot-demo" id="panel-spot" role="tabpanel" aria-labelledby="tab-spot" tabindex="0">
+          <div class="spot-person"><div class="story-portrait mina" role="img" aria-label="Mina"></div><span>Mina could use a hand.</span></div>
+          <p class="spot-bubble">One last rep.<br>A little help?</p>
+          <button class="play-action" type="button" id="offer-spot">I’ve got you</button>
+          <p class="spot-reply" id="spot-reply" hidden>“You’re a lifesaver. Bench by the window!”</p>
+          <p class="tool-caption" id="spot-status" role="status">A little backup, right when you need it.</p>
+        </div>
+        <div class="tool-panel" id="panel-program" role="tabpanel" aria-labelledby="tab-program" tabindex="0" hidden>
+          <div class="workout-notebook"><p class="notebook-label">TODAY’S LITTLE PLAN</p><h3>Make it your own.</h3>
+            <ol class="exercise-order" id="exercise-order">
+              <li><span><strong>Squat</strong><small>3 sets · 8 reps</small></span><button type="button" aria-label="Move Squat up">↑</button></li>
+              <li><span><strong>Lat pulldown</strong><small>3 sets · 10 reps</small></span><button type="button" aria-label="Move Lat pulldown up">↑</button></li>
+              <li><span><strong>Plank</strong><small>30 seconds</small></span><button type="button" aria-label="Move Plank up">↑</button></li>
+            </ol>
+          </div><p class="tool-caption" id="program-status" role="status">Tap an arrow. Your workout, your order.</p>
+        </div>
+        <div class="tool-panel rest-demo" id="panel-rest" role="tabpanel" aria-labelledby="tab-rest" tabindex="0" hidden>
+          <div class="breather-ring"><svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="98" class="ring-track"/><circle cx="110" cy="110" r="98" class="ring-progress" id="breather-progress" pathLength="100"/></svg><div><small>CATCH YOUR BREATH</small><strong id="breather-time">0:08</strong><span>Just a little breather.</span></div></div>
+          <button class="play-action" type="button" id="start-breather">Try an 8-second breather</button><p class="tool-caption" id="breather-status" role="status">Your next set can wait a moment.</p>
+        </div>
+      </div>
+    </div>
+    <p class="play-demo-note">A playful demo. No real spot request or workout is created.</p>
+    <a class="next-play" href="#nearby-gyms">Now, look a little further <span aria-hidden="true">↓</span></a>
+  </section>
+  <section class="neighbourhood" id="nearby-gyms" aria-labelledby="nearby-title">
+    <div class="play-heading"><p class="play-eyebrow">A LITTLE FURTHER. A FEW MORE HELLOS.</p><h2 id="nearby-title">Same city.<br><em>More possibilities.</em></h2><p>Your gym isn’t the whole world. Widen the circle.</p></div>
+    <div class="reach-controls" role="group" aria-label="Explore sample coverage"><button type="button" data-range="2" aria-pressed="true">2 km</button><button type="button" data-range="10" aria-pressed="false">10 km</button><button type="button" data-range="20" aria-pressed="false">20 km</button></div>
+    <p class="reach-summary" id="reach-summary" role="status"><strong>11 people</strong> across 2 gyms in this demo.</p>
+    <div class="neighbourhood-map" data-range="2">
+      <img src="assets/gym-neighbourhood.png" width="1536" height="1024" loading="lazy" alt="An illustrated fictional neighbourhood, with gyms among leafy streets and a small waterfront.">
+      <div class="coverage-ring" aria-hidden="true"></div>
+      <div class="map-gym gym-home"><button type="button" data-gym="harbour" aria-pressed="true"><span class="pin-number">4</span><span class="pin-name">Your gym</span></button></div>
+      <div class="map-gym gym-corner"><button type="button" data-gym="corner" aria-pressed="false"><span class="pin-number">7</span><span class="pin-name">Corner Club</span></button></div>
+      <div class="map-gym gym-park"><button type="button" data-gym="park" aria-pressed="false" disabled><span class="pin-number">12</span><span class="pin-name">Park Studio</span></button></div>
+      <div class="map-gym gym-loft"><button type="button" data-gym="loft" aria-pressed="false" disabled><span class="pin-number">6</span><span class="pin-name">The Loft</span></button></div>
+      <div class="map-gathering" id="map-gathering" aria-hidden="true"></div>
+      <span class="map-key">Fictional neighbourhood · not to scale</span>
+    </div>
+    <div class="gym-snapshot" aria-labelledby="snapshot-title"><p class="snapshot-hint">TAP A GYM. GET A FEEL FOR THE ROOM.</p><h3 id="snapshot-title">Your gym · Harbour Fit</h3><div class="snapshot-crowd" id="snapshot-crowd" aria-hidden="true"></div><p class="snapshot-count" id="snapshot-count" role="status"><strong>4</strong> Gymley members checked in</p><p class="snapshot-detail" id="snapshot-detail">Your starting point. A familiar room, a few new faces.</p></div>
+    <p class="play-demo-note">Illustrative counts, not live data. Check-ins represent Gymley members—not everyone in the gym.<br>No individual locations are shown.</p>
   </section>
   </main>
   <footer class="credits"><span>Gymley</span><span>Characters by <a href="https://www.openpeeps.com/">Open Peeps</a> · Crowd by <a href="https://skiper-ui.com/">Skiper UI</a></span></footer>
