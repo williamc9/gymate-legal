@@ -22,3 +22,13 @@ Fonts and Gymley logo reused from the existing approved website assets.
 Edit prompt:
 
 > Edit this exact gym illustration by adding colour ONLY. Preserve the identical composition, all original black outlines, equipment, proportions, windows, perspective and empty foreground. No people, text or additional objects. Keep the playful flat hand-drawn illustration style, no photorealism or 3D rendering. Apply cheerful tasteful flat colours suited to Gymley's golden yellow and mint palette: light mint walls, pale sky-blue window glass, leafy greens for plants and trees, warm golden-yellow upholstery on the bench, small yellow accents on equipment and planters, charcoal equipment with gentle cool grey metal, and a very light warm ivory floor. Retain crisp black lines and black structural accents. Use distinct visible colours, not an overall colour wash. Keep the floor light and clean so black-and-white animated characters will read clearly in front. Maintain original 1536x1024 landscape dimensions.
+
+## Cinematic phone sample — 2 October 2026
+
+The second section is a deliberately limited scroll-story sample: mutual Wave reveal, then three alternating messages. One sticky phone and the accompanying caption share a reversible, scroll-seeked GSAP timeline. The approved opening's CSS, original people sprite, background and crowd animation are unchanged.
+
+Visual approach inspired by the user-selected Cinematic Landing Hero: https://21st.dev/@jahed/components/cinematic-landing-hero. This is an original implementation for Gymley's story; no private component source is copied.
+
+Phone portraits reuse the fictional generated `../website/assets/profiles.webp` sheet (Ethan top-right, Mina top-left). The Wave and Add Gymate icons reuse existing app assets from the same folder. The staged conversation is illustrative, not a real user's chat.
+
+The desktop layout places text beside the phone; mobile places it above. Scroll, touch, keyboard scrolling and four accessible moment buttons share the same progress state. Reduced-motion, missing JavaScript/GSAP, and short landscape windows show a readable completed chat in normal document flow instead of pinning or clipping the phone. No database or real app data is used.

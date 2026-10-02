@@ -10,11 +10,14 @@
   <link rel="preload" as="font" href="assets/Baloo2-Bold.ttf" type="font/ttf" crossorigin>
   <link rel="preload" as="image" href="assets/gym-room-colour.png">
   <link rel="stylesheet" href="opening.css?v=2">
+  <link rel="stylesheet" href="story.css?v=1">
   <script defer src="assets/gsap.min.js"></script>
   <script defer src="crowd.js"></script>
+  <script defer src="story.js?v=1"></script>
 </head>
 <body>
-  <main class="opening">
+  <main>
+  <section class="opening" aria-label="Meet Gymley">
     <header class="masthead">
       <a class="brand" href="./" aria-label="Gymley home"><img src="assets/logo.png" width="44" height="44" alt=""><span>Gymley</span></a>
       <button class="motion-control" id="motion-toggle" type="button" aria-pressed="false" aria-label="Pause animation"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Pause</span></button>
@@ -27,6 +30,54 @@
       <div class="gym-backdrop"><img src="assets/gym-room-colour.png" width="1536" height="1024" alt="" fetchpriority="high"></div>
       <canvas id="crowd" aria-hidden="true"></canvas>
     </div>
+  </section>
+  <div class="story-invitation"><a href="#wave-story">See where a little Wave goes <span aria-hidden="true">↓</span></a></div>
+  <section class="wave-story" id="wave-story" aria-label="A little Wave, a new conversation">
+    <div class="story-stage">
+      <div class="story-copy">
+        <p class="story-eyebrow">ONE LITTLE WAVE.</p>
+        <div class="story-captions">
+          <div class="story-caption" data-caption="0"><h2>Oh.<br> They noticed<br><em>you too.</em></h2><p>You both Waved.<br> Now you both know.</p></div>
+          <div class="story-caption" data-caption="1"><h2>The first hello.<br><em>Already easier.</em></h2><p>A little less overthinking.<br> A little more you.</p></div>
+          <div class="story-caption" data-caption="2"><h2>Look at you.<br><em>Talking already.</em></h2><p>No perfect opening line needed.</p></div>
+          <div class="story-caption" data-caption="3"><h2>Same gym.<br><em>New possibility.</em></h2><p>Catch the moment while you’re both here.</p></div>
+        </div>
+        <nav class="story-steps" aria-label="Conversation moments">
+          <button type="button" data-step="0" aria-label="See the mutual Wave" aria-current="step"><span>01</span></button>
+          <button type="button" data-step="1" aria-label="See the first message"><span>02</span></button>
+          <button type="button" data-step="2" aria-label="See the reply"><span>03</span></button>
+          <button type="button" data-step="3" aria-label="See the last message"><span>04</span></button>
+        </nav>
+        <p class="scroll-note">Keep scrolling. Let it happen.</p>
+      </div>
+      <div class="phone-wrap">
+        <div class="story-phone" aria-label="Illustrative Gymley conversation between Mina and Ethan">
+          <div class="phone-status" aria-hidden="true"><span>9:41</span><span class="phone-island"></span><span>▮▮▮ ▰</span></div>
+          <div class="phone-content">
+            <div class="mutual-screen">
+              <p class="phone-kicker">A LITTLE WAVE BACK</p>
+              <div class="mutual-faces"><div class="story-portrait ethan" role="img" aria-label="Ethan"></div><div class="story-portrait mina" role="img" aria-label="Mina"></div><span class="mutual-wave"><img src="../website/assets/wave.png" alt=""></span></div>
+              <h3>It’s mutual.</h3>
+              <p>You and Mina<br>Waved at each other.</p>
+              <div class="hello-pill">A hello starts here.</div>
+            </div>
+            <div class="chat-screen">
+              <div class="demo-chat-head"><span aria-hidden="true">‹</span><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h3>Mina</h3><p>WAVEIE · THIS VISIT</p></div><img src="../website/assets/add-gymate.png" alt=""></div>
+              <div class="chat-mutual"><img src="../website/assets/wave.png" alt=""> You both Waved. Say hi.</div>
+              <div class="demo-messages">
+                <div class="story-message incoming" data-message="0"><span class="sr-only">Mina: </span>So… is “coffee after”<br>an open invitation? <span class="bubble-emoji">☕</span></div>
+                <div class="story-message outgoing" data-message="1"><span class="sr-only">Ethan: </span>It is now <span class="bubble-emoji">😉</span></div>
+                <div class="story-message incoming" data-message="2"><span class="sr-only">Mina: </span>One more set.<br>Then you’re on.</div>
+              </div>
+              <div class="demo-composer" aria-hidden="true"><span>Say something…</span><span>↑</span></div>
+            </div>
+          </div>
+          <div class="home-indicator" aria-hidden="true"></div>
+        </div>
+        <p class="phone-footnote">A little preview of what could happen.</p>
+      </div>
+    </div>
+  </section>
   </main>
   <footer class="credits"><span>Gymley</span><span>Characters by <a href="https://www.openpeeps.com/">Open Peeps</a> · Crowd by <a href="https://skiper-ui.com/">Skiper UI</a></span></footer>
 </body>
