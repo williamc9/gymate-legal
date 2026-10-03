@@ -2,10 +2,6 @@
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const tabs = [...document.querySelectorAll('[data-tool]')];
   const panels = [...document.querySelectorAll('.tool-panel')];
-  const offer = document.getElementById('offer-spot');
-  const reply = document.getElementById('spot-reply');
-  const spotStatus = document.getElementById('spot-status');
-  const order = document.getElementById('exercise-order');
   const timerButton = document.getElementById('start-breather');
   const timerDisplay = document.getElementById('breather-time');
   const timerRing = document.getElementById('breather-progress');
@@ -51,29 +47,6 @@
   document.querySelectorAll('[data-pick-tool]').forEach(button => button.addEventListener('click', () => {
     activateTool(tabs.find(tab => tab.dataset.tool === button.dataset.pickTool));
   }));
-  offer.addEventListener('click', () => {
-    const reset = !reply.hidden;
-    reply.hidden = reset;
-    offer.textContent = reset ? 'I’ve got you' : 'Try that hello again';
-    spotStatus.textContent = reset ? 'A little backup, right when you need it.' : 'A little help. A less awkward hello. (Demo only.)';
-  });
-  order.addEventListener('click', event => {
-    const button = event.target.closest('button');
-    if (!button) return;
-    const row = button.closest('li');
-    const before = [...order.children].map(item => [item, item.getBoundingClientRect().top]);
-    if (!row.previousElementSibling) return;
-    order.insertBefore(row, row.previousElementSibling);
-    [...order.children].forEach((item, index) => item.querySelector('button').disabled = index === 0);
-    if (!reduceMotion.matches) before.forEach(([item, top]) => {
-      const delta = top - item.getBoundingClientRect().top;
-      item.animate([{ transform: `translateY(${delta}px)` }, { transform: 'translateY(0)' }], { duration: 280, easing: 'ease-out' });
-    });
-    document.getElementById('program-status').textContent = `${row.querySelector('strong').textContent} is now ${[...order.children].indexOf(row) + 1} of 3. Your plan, your order.`;
-    if (button.disabled) { row.tabIndex = -1; row.focus({ preventScroll: true }); }
-    else button.focus({ preventScroll: true });
-  });
-  order.firstElementChild.querySelector('button').disabled = true;
   timerButton.addEventListener('click', () => {
     if (timer !== null) { pauseTimer(); return; }
     if (remaining <= 0) remaining = 8000;

@@ -15,7 +15,9 @@
   <script defer src="assets/gsap.min.js"></script>
   <script defer src="crowd.js"></script>
   <script defer src="story.js?v=2"></script>
-  <script defer src="playground.js?v=2"></script>
+  <script defer src="playground.js?v=3"></script>
+  <link rel="stylesheet" href="tools-demo.css?v=1">
+  <script defer src="tools-demo.js?v=1"></script>
 </head>
 <body>
   <main>
@@ -142,20 +144,34 @@
       </div>
       <div class="tool-stage">
         <div class="tool-panel spot-demo" id="panel-spot" role="tabpanel" aria-labelledby="tab-spot" tabindex="0">
-          <div class="spot-person"><div class="story-portrait mina" role="img" aria-label="Mina"></div><span>Mina could use a hand.</span></div>
-          <p class="spot-bubble">One last rep.<br>A little help?</p>
-          <button class="play-action" type="button" id="offer-spot">I’ve got you</button>
-          <p class="spot-reply" id="spot-reply" hidden>“You’re a lifesaver. Bench by the window!”</p>
-          <p class="tool-caption" id="spot-status" role="status">A little backup, right when you need it.</p>
+          <p class="notebook-label">ONE REQUEST. A ROOM OF HELPING HANDS.</p>
+          <h3 class="tool-title">Ask the gym, not a stranger.</h3>
+          <div class="spot-network" id="spot-network" data-state="idle">
+            <svg class="spot-connections" viewBox="0 0 360 280" preserveAspectRatio="none" aria-hidden="true"><path d="M180 140 L60 40 M180 140 L180 35 M180 140 L300 40 M180 140 L60 240 M180 140 L180 245 M180 140 L300 240"/></svg>
+            <div class="spot-requester"><div class="story-portrait mina" role="img" aria-label="Mina, requesting a spot"></div><strong>Mina</strong><span id="spot-station-label">Bench · a little help?</span></div>
+            <div id="spot-recipients"></div>
+          </div>
+          <div class="spot-stations" role="group" aria-label="Choose Mina’s station"><button type="button" data-station="Bench" aria-pressed="true">Bench</button><button type="button" data-station="Squat" aria-pressed="false">Squat</button></div>
+          <button class="play-action" type="button" id="send-spot-demo">Send spot request</button>
+          <p class="tool-caption" id="spot-status" role="status">Mina needs a hand. Let the people in her gym know.</p>
+          <p class="spot-demo-note">Illustrative room. First person to accept takes it.</p>
         </div>
         <div class="tool-panel" id="panel-program" role="tabpanel" aria-labelledby="tab-program" tabindex="0" hidden>
-          <div class="workout-notebook"><p class="notebook-label">TODAY’S LITTLE PLAN</p><h3>Make it your own.</h3>
-            <ol class="exercise-order" id="exercise-order">
-              <li><span><strong>Squat</strong><small>3 sets · 8 reps</small></span><button type="button" aria-label="Move Squat up">↑</button></li>
-              <li><span><strong>Lat pulldown</strong><small>3 sets · 10 reps</small></span><button type="button" aria-label="Move Lat pulldown up">↑</button></li>
-              <li><span><strong>Plank</strong><small>30 seconds</small></span><button type="button" aria-label="Move Plank up">↑</button></li>
-            </ol>
-          </div><p class="tool-caption" id="program-status" role="status">Tap an arrow. Your workout, your order.</p>
+          <div class="workout-notebook"><p class="notebook-label">A LITTLE PLAN. ENTIRELY YOURS.</p>
+            <form id="create-demo-program"><h3>What’s the plan?</h3><label for="demo-program-name">Give your program a name</label><input id="demo-program-name" maxlength="40" placeholder="e.g. My Monday reset" autocomplete="off" required><button class="play-action" id="create-demo-button" type="submit" disabled>Create program</button></form>
+            <div id="demo-program-builder" hidden>
+              <h3 id="demo-program-title" tabindex="-1"></h3><p id="empty-program">A fresh page. Add your first exercise.</p>
+              <ol class="exercise-order" id="exercise-order"></ol>
+              <button class="play-action" type="button" id="open-exercise-picker" aria-expanded="false" aria-controls="demo-exercise-picker">+ Add exercise</button>
+              <form id="demo-exercise-picker" hidden>
+                <label for="demo-muscle">1. Pick a muscle group</label><select id="demo-muscle"><option value="">Choose a group…</option><option>Chest</option><option>Back</option><option>Legs</option><option>Shoulders</option><option>Arms</option><option>Core</option></select>
+                <div id="demo-exercise-choice" hidden><label for="demo-exercise">2. Pick an exercise</label><select id="demo-exercise"></select></div>
+                <div id="demo-exercise-config" hidden><p class="config-title">3. Make it your own</p><div class="exercise-settings"><label>Sets<select id="demo-sets"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label><label>Reps<select id="demo-reps"><option>6</option><option selected>8</option><option>10</option><option>12</option><option>15</option></select></label><label>Rest<select id="demo-rest"><option value="30">30 sec</option><option value="60" selected>60 sec</option><option value="90">90 sec</option></select></label></div><button class="play-action" type="submit">Add to my program</button></div>
+                <button class="demo-text-button" type="button" id="cancel-exercise">Cancel</button>
+              </form>
+              <button class="demo-text-button" type="button" id="reset-demo-program">Start a fresh program</button>
+            </div>
+          </div><p class="tool-caption" id="program-status" role="status">Name it. Add a few moves. Make it yours.</p><p class="spot-demo-note">Try up to 6 exercises. This page only; resets on reload.</p>
         </div>
         <div class="tool-panel rest-demo" id="panel-rest" role="tabpanel" aria-labelledby="tab-rest" tabindex="0" hidden>
           <div class="breather-ring"><svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="98" class="ring-track"/><circle cx="110" cy="110" r="98" class="ring-progress" id="breather-progress" pathLength="100"/></svg><div><small>CATCH YOUR BREATH</small><strong id="breather-time">0:08</strong><span>Just a little breather.</span></div></div>
