@@ -10,7 +10,7 @@
   // Fictional recipients. No messages, permissions, persistence or API calls.
   const people = ['Jo', 'Kai', 'Ava', 'Sam', 'May', 'Leo'];
   // Authored demo characters, not inferred data about real people.
-  const genders = ['woman', 'man', 'woman', 'man', 'woman', 'man'];
+  const genders = ['woman', 'woman', 'man', 'man', 'woman', 'man'];
   let preference = 'anyone';
   const eligible = index => preference === 'anyone' || genders[index] === preference;
   const audience = () => preference === 'anyone' ? 'people' : preference === 'man' ? 'men' : 'women';

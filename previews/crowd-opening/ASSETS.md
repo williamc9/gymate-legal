@@ -104,4 +104,6 @@ Centred the Ask a Spot heading above its interaction at every breakpoint. Enlarg
 
 Added Man, Woman and Anyone preferences (Anyone by default). Fictional character gender data controls eligibility; unmatched characters and connectors fade, receive no notification, and cannot accept. The selected audience is locked during delivery and until replay; reset preserves the chosen station and audience while clearing delivery/acceptance. Accessible button states and status copy reflect the selection. No real-user data or backend calls are involved.
 
+Character mapping corrected: Jo, Kai and May are women; Ava, Sam and Leo are men. Artwork and names are unchanged; the request filter uses this mapping.
+
 Verified Man/Bench delivery and Kai acceptance, Woman/Squat delivery and Ava acceptance, replay, and Anyone delivery to all six. Browser-verification checklist used the available in-app browser fallback. Checked 320px phone, 820px tablet and 1440px desktop without horizontal overflow; all three preference controls fit one row on the narrow phone with 44px tap heights. No console warnings/errors observed. Program, timer, map and app code are untouched.
