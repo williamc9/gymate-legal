@@ -1,532 +1,217 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#15121c" />
-    <meta
-      name="description"
-      content="Gymate privacy policy, terms, community guidelines, support, and account deletion information."
-    />
-    <meta property="og:title" content="Gymate · Privacy & Support" />
-    <meta
-      property="og:description"
-      content="How Gymate protects your privacy, keeps the community safe, and handles support and account deletion."
-    />
-    <meta property="og:type" content="website" />
-    <title>Gymate · Privacy & Support</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main-en">Skip to content</a>
-
-    <header class="hero">
-      <nav class="topbar" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Gymate home">
-          <span class="brand-mark" aria-hidden="true">✦</span>
-          <span>GYMATE</span>
-        </a>
-        <div class="language-switch" aria-label="Language">
-          <button type="button" data-language="en" aria-pressed="true">EN</button>
-          <button type="button" data-language="zh-HK" aria-pressed="false">繁中</button>
-        </div>
-      </nav>
-
-      <div class="hero-copy" id="top">
-        <p class="eyebrow">PRIVACY · SAFETY · SUPPORT</p>
-        <h1>Your gym,<br /><span>minus the awkward.</span></h1>
-        <p class="lede">
-          Gymate is designed for low-pressure, in-person connection. This page explains what we
-          collect, what we never expose, and how to get help or delete your account.
-        </p>
-        <div class="hero-actions">
-          <a class="primary-action" href="#privacy-en">Read the privacy policy</a>
-          <a class="secondary-action" href="#delete-en">Delete an account</a>
-        </div>
-      </div>
-      <div class="signal" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Meet someone at the gym. Skip the awkward part. Gymley.">
+  <title>Gymley · Meet someone. Skip the awkward part.</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preload" as="font" href="assets/Baloo2-Bold.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="image" href="assets/gym-room-colour.png">
+  <link rel="stylesheet" href="opening.css?v=2">
+  <link rel="stylesheet" href="story.css?v=3">
+  <link rel="stylesheet" href="playground.css?v=3">
+  <script defer src="assets/gsap.min.js"></script>
+  <script defer src="crowd.js"></script>
+  <script defer src="story.js?v=2"></script>
+  <script defer src="playground.js?v=4"></script>
+  <link rel="stylesheet" href="tools-demo.css?v=6">
+  <script defer src="tools-demo.js?v=3"></script>
+</head>
+<body>
+  <main>
+  <section class="opening" aria-label="Meet Gymley">
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Gymley home"><img src="assets/logo.png" width="44" height="44" alt=""><span>Gymley</span></a>
+      <button class="motion-control" id="motion-toggle" type="button" aria-pressed="false" aria-label="Pause animation"><span class="motion-symbol" aria-hidden="true">Ⅱ</span><span class="motion-label">Pause</span></button>
     </header>
-
-    <div class="section-nav" aria-label="Page sections">
-      <a data-nav="privacy" href="#privacy-en">Privacy 私隱</a>
-      <a data-nav="terms" href="#terms-en">Terms 條款</a>
-      <a data-nav="community" href="#community-en">Community 社群</a>
-      <a data-nav="support" href="#support-en">Support 支援</a>
-      <a data-nav="delete" href="#delete-en">Delete 刪除</a>
+    <div class="invitation">
+      <h1><span class="headline-first">Meet someone<br class="mobile-break"> at the gym.</span><span class="headline-benefit">Skip the awkward part.</span></h1>
+      <p>A little Wave could be the start.</p>
     </div>
-
-    <main id="main-en" class="document" data-document="en">
-      <section class="intro-card" aria-labelledby="summary-en">
-        <p class="eyebrow">THE SHORT VERSION</p>
-        <h2 id="summary-en">Private by design.</h2>
-        <div class="principles">
-          <article>
-            <span class="principle-number">01</span>
-            <h3>A Wave stays anonymous</h3>
-            <p>A one-sided Wave never identifies its sender or reveals rejection.</p>
-          </article>
-          <article>
-            <span class="principle-number">02</span>
-            <h3>Presence is local</h3>
-            <p>There is no remote member roster, last-seen status, or departure feed.</p>
-          </article>
-          <article>
-            <span class="principle-number">03</span>
-            <h3>You remain in control</h3>
-            <p>Block silently, report with context, or permanently delete your account.</p>
-          </article>
+    <div class="gym-scene" role="img" aria-label="A lively crowd of illustrated people walking through a gym, each with their own look and personality.">
+      <div class="gym-backdrop"><img src="assets/gym-room-colour.png" width="1536" height="1024" alt="" fetchpriority="high"></div>
+      <canvas id="crowd" aria-hidden="true"></canvas>
+    </div>
+  </section>
+  <section class="wave-story" id="wave-story" aria-label="A little Wave, a new conversation">
+    <div class="story-stage">
+      <div class="story-copy">
+        <p class="story-eyebrow">ONE LITTLE WAVE.</p>
+        <div class="story-captions">
+          <div class="story-caption" data-caption="0"><h2>Someone noticed you.<br><em>Wonder who?</em></h2><p>A Wave just arrived.<br> Who from? That stays a little mystery.</p></div>
+          <div class="story-caption" data-caption="1"><h2>Who caught<br><em>your eye?</em></h2><p>Have a look around.<br> No clues. Just someone you’d like to know.</p></div>
+          <div class="story-caption" data-caption="2"><h2>A little hello.<br><em>No big entrance.</em></h2><p>No speech to rehearse.<br> Just a Wave.</p></div>
+          <div class="story-caption" data-caption="3"><h2>Looks like you caught<br><em>each other’s eye.</em></h2><p>You both chose each other.<br> Now you both know.</p></div>
+          <div class="story-caption" data-caption="4"><h2>Look at you.<br><em>Talking already.</em></h2><p>Enjoy the moment. This chat disappears when either of you leaves the gym room.</p></div>
+          <div class="story-caption" data-caption="5"><h2>Some chemistry<br><em>is worth keeping.</em></h2><p>Want to see where this goes? Choose each other as Gymates and keep talking.</p></div>
+          <div class="story-caption" data-caption="6"><h2>The workout’s over.<br><em>This could be<br> just starting.</em></h2><p>You both chose to stay connected.<br> Same chat. Even after the gym.</p></div>
         </div>
-      </section>
-
-      <section id="privacy-en" class="policy-section" aria-labelledby="privacy-title-en">
-        <p class="eyebrow">PRIVACY POLICY</p>
-        <h2 id="privacy-title-en">How Gymate handles your data</h2>
-        <p class="effective">Effective 8 August 2026 · Operator: Chow William</p>
-
-        <h3>1. Scope and contact</h3>
-        <p>
-          This Privacy Policy applies to the Gymate mobile and web application. Chow William is
-          the operator responsible for Gymate. Privacy questions, access or correction requests,
-          and deletion requests can be sent to
-          <a href="mailto:triboholic@gmail.com">triboholic@gmail.com</a>.
-        </p>
-
-        <h3>2. Information we collect</h3>
-        <ul>
-          <li>
-            <strong>Account and authentication:</strong> email address, authentication-provider
-            identifiers, sessions, and linked sign-in methods handled through Supabase Auth. A
-            legacy field stores a SHA-256 hash of the verified sign-in identity and is deleted
-            with the account.
-          </li>
-          <li>
-            <strong>Profile and age gate:</strong> nickname, date of birth, confirmation that you
-            are 18 or older, and room-visibility consent. Status, bio, prompts, photos, and gender
-            are optional.
-          </li>
-          <li>
-            <strong>Location and room presence:</strong> coordinates used to find, create, enter,
-            verify, and leave gym rooms; room and venue identifiers; visit times; presence state;
-            and the last verification time. Gymate does not store a continuous route.
-          </li>
-          <li>
-            <strong>Favorite Rooms:</strong> private links between your account and rooms you choose
-            to save after visiting. Favorites sync across your devices and can be removed in Me.
-          </li>
-          <li>
-            <strong>Social and safety activity:</strong> Waves, chats and messages, Gymate
-            connections, blocks, contextual reports, Ask-a-Spot activity, notifications, and saved
-            training programs.
-          </li>
-          <li>
-            <strong>Device and support:</strong> an opaque native-installation hash, push token,
-            notification preferences, app version, platform, and information you enter in a
-            support report.
-          </li>
-          <li>
-            <strong>Bonus Waves and referrals:</strong> your Bonus Wave balance and grant/spend
-            ledger, personal referral code, one referrer/referee relationship, reward milestones,
-            cooldown expiry, and the distinct eligible account IDs counted toward a new room's
-            founder threshold. Referral records may include the same opaque installation hash used
-            for anti-abuse checks.
-          </li>
-        </ul>
-
-        <h3>3. How we use information</h3>
-        <p>
-          We use this information to authenticate accounts, confirm the 18+ gate, enforce physical
-          room proximity, provide Gymate features, deliver requested notifications, prevent abuse,
-          calculate and protect Bonus Wave rewards, investigate reports, answer support requests,
-          secure accounts, and maintain the service.
-          We do not sell personal data or use it for third-party advertising.
-        </p>
-
-        <h3>4. Privacy boundaries inside Gymate</h3>
-        <ul>
-          <li>A one-sided Wave never reveals its sender.</li>
-          <li>A one-sided Add Gymate action never reveals intent or rejection.</li>
-          <li>Grace-period users are invisible to other room members.</li>
-          <li>Bio, full photos, prompts, and quick facts are restricted to Gymates.</li>
-          <li>Blocking works in both directions without notifying the blocked person.</li>
-          <li>Gymate has no read receipts, typing indicators, delivery states, or last-seen status.</li>
-          <li>Ask-a-Spot does not create a social connection.</li>
-          <li>A referral reward never gives the referrer the referee's gym, Wave target, location, or another activity detail.</li>
-          <li>Founder qualification counts distinct eligible visitors privately and never creates a remote member roster.</li>
-          <li>Favorite Rooms are visible only to you. They never notify founders, rank rooms, check you in, or contribute to founder rewards.</li>
-        </ul>
-
-        <h3>5. Location</h3>
-        <p>
-          Location is required for Gymate's in-person room features. The app may use background
-          location to check you out after you leave. The backend receives coordinates to validate
-          distance rules. Room creation stores the room anchor; visit records store room-level
-          history and timestamps, not a continuous movement trail. Denying background access means
-          you may need to leave a room manually.
-        </p>
-
-        <h3>6. Photos, messages, and reports</h3>
-        <p>
-          Profile photos are stored privately and delivered through short-lived authorized links.
-          Messages and closed temporary records may remain server-side for safety and moderation
-          until account deletion even when they are no longer visible in the app. Person reports
-          may contain category, optional description, related-chat context, participants,
-          timestamps, and moderation state.
-        </p>
-
-        <h3>7. Service providers and transfers</h3>
-        <p>
-          Gymate uses Supabase for authentication, database, file storage, realtime features, and
-          server functions; Expo for application builds and push delivery; and Apple or Google when
-          you choose those sign-in methods. These providers may process data in other countries
-          under their own contractual and security safeguards. Gymate does not automatically import
-          your provider display name, profile photo, contacts, or social graph.
-        </p>
-
-        <h3>8. Retention and deletion</h3>
-        <p>
-          Most account-linked information is retained while your account exists. In-app account
-          deletion removes the authentication account, profile, photos, messages and connections,
-          visit records, Favorite Rooms, Waves, Bonus Wave balance and ledger, referral relationships, founder
-          qualification entries, blocks, reports, support tickets, programs, push records, and
-          other associated app data. Shared gym-room records may remain without identifying the deleted
-          founder. An opaque installation hash remains without the deleted user ID for five days to
-          enforce the device cooling-off period. Infrastructure logs and protected backups may
-          remain for limited operational periods before rotation.
-        </p>
-
-        <h3>9. Security</h3>
-        <p>
-          Gymate uses access controls, row-level database rules, private storage, short-lived links,
-          encrypted network transport, server-side eligibility checks, and restricted operator
-          access. No online system is perfectly secure, so please report suspected account or
-          privacy problems promptly.
-        </p>
-
-        <h3>10. Your choices and rights</h3>
-        <p>
-          You can edit profile information, remove photos, remove Favorite Rooms, withdraw notification permission, leave
-          rooms, block or unblock people, and delete your account from Me → Delete Account. You may
-          also request access, correction, or deletion by email. We may verify that you control the
-          account before acting. Never send a password or one-time code to support.
-        </p>
-
-        <h3>11. Age and changes</h3>
-        <p>
-          Gymate is for people aged 18 or older. We may update this policy when the product or legal
-          requirements change. The effective date above will be updated, and material changes will
-          be communicated through the app or this page where appropriate.
-        </p>
-      </section>
-
-      <section id="terms-en" class="policy-section" aria-labelledby="terms-title-en">
-        <p class="eyebrow">TERMS OF USE</p>
-        <h2 id="terms-title-en">A respectful, real-world gym community</h2>
-        <p class="effective">Effective 8 August 2026</p>
-
-        <h3>1. Eligibility and acceptance</h3>
-        <p>
-          You must be at least 18 years old and able to agree to these Terms. By creating or using a
-          Gymate account, you agree to these Terms and the Community Guidelines.
-        </p>
-
-        <h3>2. Your account</h3>
-        <p>
-          Provide accurate information, protect your sign-in methods, and use only your own account.
-          One native installation may be bound to one Gymate account as an anti-abuse measure. Do
-          not sell, share, automate, or impersonate an account.
-        </p>
-
-        <h3>3. Gym safety</h3>
-        <p>
-          Gymate is a social coordination tool, not medical, fitness, emergency, or professional
-          supervision. Exercise and spotting involve risk. Use suitable judgment, communicate
-          clearly, follow venue rules, and stop if conditions are unsafe. Ask-a-Spot does not
-          guarantee skill, availability, or safety.
-        </p>
-
-        <h3>4. Acceptable use</h3>
-        <p>
-          Follow the Community Guidelines. Do not harass, threaten, discriminate, stalk, deceive,
-          spam, scrape, reverse engineer, bypass location or device safeguards, create fraudulent
-          accounts, manipulate Waves or rewards, or use Gymate for unlawful activity.
-        </p>
-
-        <h3>5. Your content</h3>
-        <p>
-          You remain responsible for profile text, photos, messages, room names, and reports you
-          submit. You grant Gymate a limited licence to host, process, display, and transmit that
-          content only as needed to operate, secure, moderate, and improve the service. You must have
-          the right to submit it.
-        </p>
-
-        <h3>6. Rooms, presence, and availability</h3>
-        <p>
-          Location and attendance states can be delayed or inaccurate because of device, network,
-          venue, or operating-system conditions. Gymate does not guarantee that a listed person,
-          room, message, Spot request, or feature remains available. Do not use Gymate presence as
-          proof of another person's location or safety.
-        </p>
-
-        <h3>7. Enforcement</h3>
-        <p>
-          We may restrict visibility, remove content, suspend features, or terminate accounts when
-          reasonably needed for safety, integrity, legal compliance, or serious/repeated violations.
-          Blocking and report outcomes may remain private to protect users and investigations.
-        </p>
-
-        <h3>8. Service changes and disclaimers</h3>
-        <p>
-          Gymate may change, pause, or discontinue features. The service is provided on an
-          “as available” basis to the extent permitted by applicable law. Nothing in these Terms
-          excludes rights or liabilities that cannot legally be excluded.
-        </p>
-
-        <h3>9. Ending use</h3>
-        <p>
-          You may stop using Gymate or permanently delete your account at any time. Sections that by
-          their nature must survive—such as responsibility for past misuse and lawful dispute
-          handling—continue only to the extent permitted by law.
-        </p>
-
-        <h3>10. Contact</h3>
-        <p>
-          Questions about these Terms can be sent to
-          <a href="mailto:triboholic@gmail.com">triboholic@gmail.com</a>.
-        </p>
-      </section>
-
-      <section id="community-en" class="policy-section" aria-labelledby="community-title-en">
-        <p class="eyebrow">COMMUNITY GUIDELINES</p>
-        <h2 id="community-title-en">Friendly, consensual, low pressure</h2>
-        <p>
-          Gymate should make the gym feel less awkward—not less safe. Every interaction is optional.
-        </p>
-
-        <div class="guideline-grid">
-          <article>
-            <h3>Respect consent</h3>
-            <p>A Wave, message, Spot request, or Gymate connection is never permission for unwanted contact.</p>
-          </article>
-          <article>
-            <h3>Protect privacy</h3>
-            <p>Do not photograph, identify, track, expose, or share another person's gym activity without permission.</p>
-          </article>
-          <article>
-            <h3>Be genuine</h3>
-            <p>Use your own account and honest profile. Do not impersonate, manipulate rewards, or create deceptive rooms.</p>
-          </article>
-          <article>
-            <h3>Keep it safe</h3>
-            <p>Do not threaten, harass, discriminate, sexually pressure, stalk, scam, or encourage dangerous behavior.</p>
-          </article>
+        <nav class="story-steps" aria-label="Conversation moments">
+          <button type="button" data-step="0" aria-label="See the anonymous Wave" aria-current="step"><span>01</span></button>
+          <button type="button" data-step="1" aria-label="Meet someone in the room"><span>02</span></button>
+          <button type="button" data-step="2" aria-label="Send a Wave"><span>03</span></button>
+          <button type="button" data-step="3" aria-label="See the mutual Wave"><span>04</span></button>
+          <button type="button" data-step="4" aria-label="See the Waveie conversation"><span>05</span></button>
+          <button type="button" data-step="5" aria-label="Become Gymates"><span>06</span></button>
+          <button type="button" data-step="6" aria-label="Keep talking after the gym"><span>07</span></button>
+        </nav>
+      </div>
+      <div class="phone-wrap">
+        <div class="story-phone" aria-label="Illustrative Gymley conversation between Mina and Ethan">
+          <div class="phone-status" aria-hidden="true"><span>9:41</span><span class="phone-island"></span><span>▮▮▮ ▰</span></div>
+          <div class="phone-content">
+            <div class="room-screen story-screen" data-screen="room">
+              <div class="journey-room-head"><div class="story-portrait ethan" role="img" aria-label="You, Ethan"></div><div><h3>Harbour Fit</h3><p>4 CHECKED IN</p></div><img src="assets/leave.png" alt="Leave gym"></div>
+              <div class="room-wave-quota"><img src="assets/wave.png" alt=""><span><b>● ● ●</b><small>3 WAVES LEFT</small></span></div>
+              <p class="room-label">HERE WITH YOU</p>
+              <div class="room-people">
+                <div class="room-person"><div class="story-portrait sophie" role="img" aria-label="Sophie"></div><div><h4>Sophie</h4><p>One more rep. Probably.</p></div><img src="assets/wave.png" alt=""></div>
+                <div class="room-person mina-card"><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h4>Mina</h4><p>Leg day. Then a little treat.</p></div><img src="assets/wave.png" alt=""></div>
+                <div class="room-person"><div class="story-portrait kai" role="img" aria-label="Kai"></div><div><h4>Kai</h4><p>Here for the good energy.</p></div><img src="assets/wave.png" alt=""></div>
+              </div>
+              <div class="anonymous-wave"><img src="assets/wave.png" alt=""><div><small>GYMLEY · JUST NOW</small><strong>Someone Waved at you.</strong><span>A little mystery. A nice feeling.</span></div></div>
+              <div class="demo-room-tabs" aria-hidden="true"><img src="assets/tab-room.png" alt=""><img src="assets/tab-chats.png" alt=""><img src="assets/tab-train.png" alt=""><img src="assets/tab-alerts.png" alt=""><img src="assets/tab-fav.png" alt=""></div>
+            </div>
+            <div class="profile-screen story-screen" data-screen="profile">
+              <div class="profile-heading"><span aria-hidden="true">‹</span><h3>A familiar face?</h3></div>
+              <div class="profile-picture story-portrait mina" role="img" aria-label="Mina at the gym"></div>
+              <h3 class="profile-name">Mina</h3><p class="profile-intro">Leg day. Then a little treat.</p>
+              <div class="profile-interests"><span>Strength</span><span>Morning person</span><span>Coffee</span></div>
+              <div class="profile-wave"><img src="assets/wave.png" alt=""><span class="wave-before">Wave to Mina</span><span class="wave-after">Wave sent</span></div>
+              <p class="profile-privacy">Only a mutual Wave reveals who Waved.</p>
+            </div>
+            <div class="mutual-screen story-screen" data-screen="mutual">
+              <p class="phone-kicker">A LITTLE WAVE BACK</p>
+              <div class="mutual-faces"><div class="story-portrait ethan" role="img" aria-label="Ethan"></div><div class="story-portrait mina" role="img" aria-label="Mina"></div><span class="mutual-wave"><img src="assets/wave.png" alt=""></span></div>
+              <h3>It’s mutual.</h3>
+              <p>You and Mina<br>Waved at each other.</p>
+              <div class="hello-pill">A hello starts here.</div>
+            </div>
+            <div class="chat-screen story-screen" data-screen="chat">
+              <div class="demo-chat-head"><span aria-hidden="true">‹</span><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h3>Mina</h3><p>WAVEIE · THIS VISIT</p></div><img src="assets/add-gymate.png" alt=""></div>
+              <div class="chat-mutual"><img src="assets/wave.png" alt=""> You both Waved. Say hi.</div>
+              <div class="demo-messages">
+                <div class="story-message incoming" data-message="0"><span class="sr-only">Mina: </span>So… is “coffee after”<br>an open invitation? <span class="bubble-emoji">☕</span></div>
+                <div class="story-message outgoing" data-message="1"><span class="sr-only">Ethan: </span>It is now <span class="bubble-emoji">😉</span></div>
+                <div class="story-message incoming" data-message="2"><span class="sr-only">Mina: </span>One more set.<br>Then you’re on.</div>
+              </div>
+              <div class="demo-composer" aria-hidden="true"><span>Say something…</span><span>↑</span></div>
+              <div class="gymate-choice">
+                <img class="choice-icon" src="assets/add-gymate.png" alt="">
+                <h3>Keep this going?</h3>
+                <p>It takes two to become Gymates.</p>
+                <div class="choice-row"><div class="story-portrait ethan" role="img" aria-label="You"></div><strong>You</strong><span class="choice-initial">Add Gymate</span><span class="choice-yes you-yes">Added Mina ✓</span></div>
+                <div class="choice-row"><div class="story-portrait mina" role="img" aria-label="Mina"></div><strong>Mina</strong><span class="choice-wait">Her choice, too.</span><span class="choice-yes mina-yes">Added you ✓</span></div>
+                <div class="gymate-confirmation"><img src="assets/gymate-confirmed.png" alt=""><strong>You’re Gymates.</strong><span>This chat is staying.</span></div>
+              </div>
+            </div>
+            <div class="later-screen chat-screen story-screen" data-screen="later">
+              <div class="demo-chat-head"><span aria-hidden="true">‹</span><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h3>Mina</h3><p>GYMATE</p></div><img src="assets/gymate-confirmed.png" alt="Gymates"></div>
+              <div class="chat-mutual">Some chemistry is worth keeping.</div>
+              <div class="demo-messages">
+                <div class="story-message incoming history-message"><span class="sr-only">Earlier, Mina: </span>One more set.<br>Then you’re on.</div>
+                <div class="later-time">LATER THAT EVENING</div>
+                <div class="story-message incoming late-message" data-late="0"><span class="sr-only">Mina: </span>Same time tomorrow?</div>
+                <div class="story-message outgoing late-message" data-late="1"><span class="sr-only">You: </span>Wouldn’t miss it. <span class="bubble-emoji">😊</span></div>
+              </div>
+              <div class="demo-composer" aria-hidden="true"><span>Say something…</span><span>↑</span></div>
+            </div>
+          </div>
+          <div class="home-indicator" aria-hidden="true"></div>
         </div>
-
-        <h3>Not allowed</h3>
-        <ul>
-          <li>Harassment, hate, threats, sexual misconduct, stalking, or repeated unwanted contact.</li>
-          <li>Profiles or content involving anyone under 18.</li>
-          <li>Impersonation, fraud, spam, commercial solicitation, or reward manipulation.</li>
-          <li>Sharing private messages, photos, identities, or location information without consent.</li>
-          <li>Instructions or conduct that create a credible risk of physical harm.</li>
-          <li>Attempts to bypass blocks, account/device controls, moderation, or location checks.</li>
-        </ul>
-
-        <h3>Use the safety tools</h3>
-        <p>
-          Block silently when you want separation. Report a person from the relevant profile or chat
-          so the report includes appropriate context. For an app or account problem, use Report a
-          Problem in Me. If anyone is in immediate danger, contact venue staff or local emergency
-          services—Gymate is not an emergency service.
-        </p>
-      </section>
-
-      <section id="support-en" class="policy-section contact-section" aria-labelledby="support-title-en">
-        <p class="eyebrow">SUPPORT</p>
-        <h2 id="support-title-en">We’ll help you find the right path</h2>
-        <p>
-          Signed-in users can open Me → Report a Problem to receive an opaque reference number. If
-          you cannot access the app, email us. Include a short description and your reference number
-          if you have one.
-        </p>
-        <a class="email-card" href="mailto:triboholic@gmail.com?subject=Gymate%20support%20request">
-          <span>EMAIL SUPPORT</span>
-          <strong>triboholic@gmail.com</strong>
-        </a>
-        <p class="quiet">
-          Never send your password, one-time sign-in code, full date of birth, precise gym history,
-          or another person's private information. Gymate support is not an emergency service.
-        </p>
-      </section>
-
-      <section id="delete-en" class="policy-section delete-section" aria-labelledby="delete-title-en">
-        <p class="eyebrow">ACCOUNT DELETION</p>
-        <h2 id="delete-title-en">Permanently delete your Gymate account</h2>
-        <div class="deletion-paths">
-          <article>
-            <span class="path-label">FASTEST</span>
-            <h3>Delete inside Gymate</h3>
-            <ol>
-              <li>Open the <strong>Me</strong> tab.</li>
-              <li>Choose <strong>Delete Account</strong>.</li>
-              <li>Read the consequences and type <strong>DELETE</strong>.</li>
-              <li>Confirm. Deletion begins immediately.</li>
-            </ol>
-          </article>
-          <article>
-            <span class="path-label">NO APP ACCESS</span>
-            <h3>Request deletion by email</h3>
-            <p>
-              Email from the address used for Gymate when possible. We will verify account control
-              and tell you the expected completion time. Do not send a password or OTP.
-            </p>
-            <a class="primary-action compact" href="mailto:triboholic@gmail.com?subject=Gymate%20account%20deletion%20request&body=Please%20delete%20my%20Gymate%20account.%0A%0AGymate%20nickname%20(optional)%3A%0AReason%20(optional)%3A">
-              Request account deletion
-            </a>
-          </article>
+        <p class="phone-footnote">A little preview of what could happen.</p>
+      </div>
+    </div>
+    <div class="story-transcript">
+      <h2>One little Wave. A little chemistry.</h2>
+      <ol><li>A Wave arrives anonymously. The sender’s identity stays private.</li><li>You notice Mina in the gym room and choose to Wave.</li><li>It’s mutual: Mina independently chose you, too.</li><li>You start chatting as Waveies. This chat disappears when either of you leaves the gym room.</li><li>You add Mina as a Gymate. Mina chooses to add you, too. Only then are you Gymates.</li><li>Later that evening, the same conversation continues—even after the gym.</li></ol>
+    </div>
+  </section>
+  <section class="spot-chapter" id="ask-a-spot" aria-labelledby="spot-title">
+    <div class="spot-chapter-layout">
+      <div class="spot-chapter-copy"><p class="play-eyebrow">ASK A SPOT · IN THE APP</p><h2 id="spot-title">Need a spotter?<br><em>There’s your opening.</em></h2><p>One request reaches the people in your gym.<br>A little help can be a pretty good start.</p></div>
+      <div class="spot-demo" id="panel-spot" role="group" aria-label="Try Ask a Spot">
+          <p class="notebook-label">ONE REQUEST. A ROOM OF HELPING HANDS.</p>
+          <div class="spot-network" id="spot-network" data-state="idle">
+            <svg class="spot-connections" viewBox="0 0 360 280" preserveAspectRatio="none" aria-hidden="true"><path d="M180 140 L58 45"/><path d="M180 140 L180 45"/><path d="M180 140 L302 45"/><path d="M180 140 L58 235"/><path d="M180 140 L180 235"/><path d="M180 140 L302 235"/></svg>
+            <div class="spot-requester"><div class="story-portrait mina" role="img" aria-label="Mina, requesting a spot"></div><strong>Mina</strong><span id="spot-station-label">Bench · a little help?</span></div>
+            <div id="spot-recipients"></div>
+          </div>
+          <div class="spot-stations" role="group" aria-label="Choose Mina’s station"><button type="button" data-station="Bench" aria-pressed="true">Bench</button><button type="button" data-station="Squat" aria-pressed="false">Squat</button></div>
+          <p class="spot-preference-label" id="spot-preference-label">Who would you like a hand from?</p>
+          <div class="spot-stations spot-preferences" role="group" aria-labelledby="spot-preference-label"><button type="button" data-spot-preference="man" aria-pressed="false">Man</button><button type="button" data-spot-preference="woman" aria-pressed="false">Woman</button><button type="button" data-spot-preference="anyone" aria-pressed="true">Anyone</button></div>
+          <button class="play-action" type="button" id="send-spot-demo">Send spot request</button>
+          <p class="tool-caption" id="spot-status" role="status">Mina needs a hand. Let the people in her gym know.</p>
+          <p class="spot-demo-note">Illustrative room. First person to accept takes it.</p>
+      </div>
+    </div>
+  </section>
+  <section class="gym-playground" id="gym-tools" aria-labelledby="tools-title">
+    <div class="play-heading"><p class="play-eyebrow">FOR THE WORKOUT, TOO.</p><h2 id="tools-title">Your session.<br><em>Your rhythm.</em></h2><p>A plan of your own. A breather when you need one.</p></div>
+    <div class="bench-layout">
+      <div class="bench-scene">
+        <div class="bench-art"><img class="bench-illustration" src="assets/gym-bench.png" width="1536" height="1024" loading="lazy" alt="A hand-drawn gym bench with dumbbells, a workout notebook and a yellow stopwatch."><button class="bench-object object-notebook" type="button" data-pick-tool="program" aria-label="Open the workout notebook"></button><button class="bench-object object-watch" type="button" data-pick-tool="rest" aria-label="Try the stopwatch"></button></div>
+        <div class="bench-tabs" role="tablist" aria-label="Try a gym tool">
+          <button type="button" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="true" data-tool="program"><span>01</span>Your program</button>
+          <button type="button" role="tab" id="tab-rest" aria-controls="panel-rest" aria-selected="false" tabindex="-1" data-tool="rest"><span>02</span>Rest timer</button>
         </div>
-        <h3>What deletion removes</h3>
-        <p>
-          Your authentication account, profile, photos, visits, Favorite Rooms, Waves, messages and chats, Gymate
-          connections, blocks, reports, support tickets, programs, push records, and other linked
-          app data are removed. A shared gym-room record may remain without identifying you as its
-          founder. An opaque installation hash remains without your user ID for five days, during
-          which that installation cannot create a different Gymate account.
-        </p>
-        <p>
-          If automatic Sign in with Apple revocation is unavailable, follow the instructions shown
-          by Gymate to revoke access manually in Apple Account settings.
-        </p>
-      </section>
-    </main>
-
-    <main id="main-zh" class="document" data-document="zh-HK" hidden>
-      <section class="intro-card" aria-labelledby="summary-zh">
-        <p class="eyebrow">簡單重點</p>
-        <h2 id="summary-zh">以私隱為核心。</h2>
-        <div class="principles">
-          <article><span class="principle-number">01</span><h3>揮手保持匿名</h3><p>單方面揮手不會顯示發送者，也不會顯示拒絕。</p></article>
-          <article><span class="principle-number">02</span><h3>只顯示現場狀態</h3><p>沒有遙距成員名單、最後上線時間或離場動態。</p></article>
-          <article><span class="principle-number">03</span><h3>由你控制</h3><p>你可以私下封鎖、舉報問題，或永久刪除帳戶。</p></article>
+      </div>
+      <div class="tool-stage">
+        <div class="tool-panel" id="panel-program" role="tabpanel" aria-labelledby="tab-program" tabindex="0">
+          <div class="workout-notebook"><p class="notebook-label">A LITTLE PLAN. ENTIRELY YOURS.</p>
+            <form id="create-demo-program"><h3>What’s the plan?</h3><label for="demo-program-name">Give your program a name</label><input id="demo-program-name" maxlength="40" placeholder="e.g. My Monday reset" autocomplete="off" required><button class="play-action" id="create-demo-button" type="submit" disabled>Create program</button></form>
+            <div id="demo-program-builder" hidden>
+              <h3 id="demo-program-title" tabindex="-1"></h3><p id="empty-program">A fresh page. Add your first exercise.</p>
+              <ol class="exercise-order" id="exercise-order"></ol>
+              <button class="play-action" type="button" id="open-exercise-picker" aria-expanded="false" aria-controls="demo-exercise-picker">+ Add exercise</button>
+              <form id="demo-exercise-picker" hidden>
+                <label for="demo-muscle">1. Pick a muscle group</label><select id="demo-muscle"><option value="">Choose a group…</option><option>Chest</option><option>Back</option><option>Legs</option><option>Shoulders</option><option>Arms</option><option>Core</option></select>
+                <div id="demo-exercise-choice" hidden><label for="demo-exercise">2. Pick an exercise</label><select id="demo-exercise"></select></div>
+                <div id="demo-exercise-config" hidden><p class="config-title">3. Make it your own</p><div class="exercise-settings"><label>Sets<select id="demo-sets"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label><label>Reps<select id="demo-reps"><option>6</option><option selected>8</option><option>10</option><option>12</option><option>15</option></select></label><label>Rest<select id="demo-rest"><option value="30">30 sec</option><option value="60" selected>60 sec</option><option value="90">90 sec</option></select></label></div><button class="play-action" type="submit">Add to my program</button></div>
+                <button class="demo-text-button" type="button" id="cancel-exercise">Cancel</button>
+              </form>
+              <button class="demo-text-button" type="button" id="reset-demo-program">Start a fresh program</button>
+            </div>
+          </div><p class="tool-caption" id="program-status" role="status">Name it. Add a few moves. Make it yours.</p><p class="spot-demo-note">Try up to 6 exercises. This page only; resets on reload.</p>
         </div>
-      </section>
-
-      <section id="privacy-zh" class="policy-section" aria-labelledby="privacy-title-zh">
-        <p class="eyebrow">私隱政策</p>
-        <h2 id="privacy-title-zh">Gymate 如何處理你的資料</h2>
-        <p class="effective">生效日期：2026 年 8 月 8 日 · 營運者：Chow William</p>
-
-        <h3>1. 適用範圍及聯絡方法</h3>
-        <p>本政策適用於 Gymate 流動及網頁應用程式。Gymate 由 Chow William 營運。如有私隱、查閱、更正或刪除資料要求，請電郵至 <a href="mailto:triboholic@gmail.com">triboholic@gmail.com</a>。</p>
-
-        <h3>2. 我們收集的資料</h3>
-        <ul>
-          <li><strong>帳戶及認證：</strong>電郵、認證供應商識別資料、登入工作階段及已連接登入方式，並由 Supabase Auth 處理。舊有欄位會儲存已驗證登入身份的 SHA-256 雜湊，並於刪除帳戶時移除。</li>
-          <li><strong>個人檔案及年齡限制：</strong>暱稱、出生日期、年滿 18 歲確認及房間可見度同意。狀態、簡介、Prompts、相片及性別均屬自選。</li>
-          <li><strong>位置及房間狀態：</strong>用於尋找、建立、進入、驗證及離開健身室房間的座標，以及房間、場地、到訪時間、狀態和最後驗證時間。Gymate 不會儲存連續移動路線。</li>
-          <li><strong>最愛房間：</strong>你到訪後選擇儲存嘅私人帳戶與房間連結。最愛房間會同步到你嘅裝置，亦可以喺 Me 移除。</li>
-          <li><strong>社交及安全活動：</strong>揮手、對話及訊息、Gymate 連結、封鎖、舉報、Ask-a-Spot、通知及已儲存訓練計劃。</li>
-          <li><strong>裝置及支援：</strong>不透明的裝置安裝雜湊、推送通知 token、通知偏好、App 版本、平台及你在支援報告輸入的資料。</li>
-          <li><strong>Bonus Wave 及推薦：</strong>你的 Bonus Wave 餘額及增減帳目、個人推薦碼、一次推薦人與受推薦人關係、獎勵里程碑、冷靜時間，以及用於新房間創辦人門檻的合資格不同帳戶 ID。推薦紀錄可包括用於防止濫用的同一不透明安裝雜湊。</li>
-        </ul>
-
-        <h3>3. 資料用途</h3>
-        <p>我們使用資料以驗證帳戶、執行 18+ 限制、核實現場距離、提供功能、發送你選擇的通知、計算及保障 Bonus Wave 獎勵、防止濫用、處理舉報及支援、保障帳戶和維持服務。我們不會出售個人資料，亦不會用於第三方廣告。</p>
-
-        <h3>4. Gymate 內的私隱界線</h3>
-        <ul>
-          <li>單方面揮手永遠不會顯示發送者。</li>
-          <li>單方面 Add Gymate 永遠不會顯示意圖或拒絕。</li>
-          <li>寬限期用戶不會向其他房間成員顯示。</li>
-          <li>簡介、完整相片、Prompts 及快速資料只限 Gymates 查看。</li>
-          <li>封鎖會雙向生效，但不會通知被封鎖的人。</li>
-          <li>沒有已讀、輸入中、送達或最後上線狀態。</li>
-          <li>Ask-a-Spot 不會建立社交連結。</li>
-          <li>推薦獎勵不會向推薦人提供受推薦人的健身房、Wave 對象、位置或其他活動詳情。</li>
-          <li>創辦人資格只會私下計算合資格不同訪客，絕不會建立遠端成員名單。</li>
-          <li>最愛房間只得你睇到，唔會通知創辦人、影響房間排名、自動進入房間或計入創辦人獎勵。</li>
-        </ul>
-
-        <h3>5. 位置</h3>
-        <p>現場房間功能需要位置資料。App 可使用背景位置在你離開後自動退出房間。伺服器接收座標以執行距離規則；建立房間會儲存房間定位點，而到訪紀錄只會儲存房間層級紀錄及時間，不會儲存連續路線。如拒絕背景位置權限，你可能需要手動離開房間。</p>
-
-        <h3>6. 相片、訊息及舉報</h3>
-        <p>個人相片會私人儲存，並只透過短期授權連結提供。已關閉的臨時對話即使不再顯示，仍可能為安全及審核保留至帳戶刪除。用戶舉報可包括分類、自選描述、相關對話資料、雙方帳戶、時間及審核狀態。</p>
-
-        <h3>7. 服務供應商及跨境處理</h3>
-        <p>Gymate 使用 Supabase 提供認證、資料庫、檔案儲存、即時功能及伺服器功能；使用 Expo 提供 App 建置及推送通知；並在你選擇時使用 Apple 或 Google 登入。這些供應商可能按其合約及保安措施在其他地區處理資料。Gymate 不會自動匯入供應商名稱、頭像、通訊錄或社交關係。</p>
-
-        <h3>8. 保留及刪除</h3>
-        <p>大部分帳戶資料會在帳戶存在期間保留。App 內刪除帳戶會移除認證帳戶、個人檔案、相片、訊息、連結、到訪、最愛房間、揮手、Bonus Wave 餘額及帳目、推薦關係、創辦人資格紀錄、封鎖、舉報、支援票、訓練計劃、推送紀錄及其他相關資料。共用健身室房間可在不再識別已刪除創辦人的情況下保留。不透明的安裝雜湊會在不包含已刪除用戶 ID 的情況下保留五日。受保護備份及基礎設施紀錄可能在有限營運週期後才輪替。</p>
-
-        <h3>9. 保安</h3>
-        <p>Gymate 使用存取控制、資料庫列層級規則、私人儲存、短期連結、加密網絡傳輸、伺服器資格檢查及受限制營運者權限。任何網上系統都不能保證絕對安全，如懷疑帳戶或私隱問題，請盡快聯絡我們。</p>
-
-        <h3>10. 你的選擇及權利</h3>
-        <p>你可以編輯資料、移除相片、移除最愛房間、關閉通知、離開房間、封鎖或解除封鎖，以及在「Me → 刪除帳戶」永久刪除帳戶。你亦可用電郵要求查閱、更正或刪除資料。我們可能先核實你控制該帳戶。切勿向支援人員傳送密碼或一次性驗證碼。</p>
-
-        <h3>11. 年齡及政策更新</h3>
-        <p>Gymate 只供 18 歲或以上人士使用。如產品或法律要求改變，我們可更新本政策並修改上方生效日期；重大更改會按情況透過 App 或本頁通知。</p>
-      </section>
-
-      <section id="terms-zh" class="policy-section" aria-labelledby="terms-title-zh">
-        <p class="eyebrow">使用條款</p>
-        <h2 id="terms-title-zh">尊重、安全、真實的健身社群</h2>
-        <p class="effective">生效日期：2026 年 8 月 8 日</p>
-        <h3>1. 資格及同意</h3><p>你必須年滿 18 歲並有能力同意本條款。建立或使用 Gymate 帳戶，即表示你同意本條款及社群守則。</p>
-        <h3>2. 你的帳戶</h3><p>請提供準確資料、保護登入方式並只使用自己的帳戶。一個原生安裝可與一個 Gymate 帳戶綁定以防止濫用。不得出售、分享、自動操作或冒充帳戶。</p>
-        <h3>3. 健身安全</h3><p>Gymate 是社交協調工具，並非醫療、健身、緊急或專業監督服務。運動及保護均有風險。請自行判斷、清楚溝通、遵守場地規則，並在不安全時停止。Ask-a-Spot 不保證對方技術、可用性或安全。</p>
-        <h3>4. 可接受使用</h3><p>請遵守社群守則。不得騷擾、威脅、歧視、跟蹤、欺騙、濫發訊息、擷取資料、逆向工程、繞過位置或裝置保障、建立虛假帳戶、操控揮手或獎勵，或作非法用途。</p>
-        <h3>5. 你的內容</h3><p>你須對提交的個人文字、相片、訊息、房間名稱及舉報負責。你授予 Gymate 有限許可，只為營運、保障、審核及改善服務而寄存、處理、顯示及傳送該內容。你必須有權提交相關內容。</p>
-        <h3>6. 房間、狀態及可用性</h3><p>位置及出席狀態可因裝置、網絡、場地或作業系統而延誤或不準確。Gymate 不保證任何人、房間、訊息、Spot 請求或功能持續可用。不得把 Gymate 狀態當作他人位置或安全證明。</p>
-        <h3>7. 執行守則</h3><p>如為安全、完整性、法律合規或嚴重／重複違規而合理需要，我們可限制顯示、移除內容、暫停功能或終止帳戶。為保障用戶及調查，封鎖及舉報結果可保持私密。</p>
-        <h3>8. 服務更改及聲明</h3><p>Gymate 可更改、暫停或停止功能。在適用法律容許的範圍內，服務按「可用狀況」提供。本條款不排除法律上不可排除的權利或責任。</p>
-        <h3>9. 停止使用</h3><p>你可隨時停止使用或永久刪除帳戶。按性質需要延續的條款，只會在法律容許範圍內繼續適用。</p>
-        <h3>10. 聯絡</h3><p>條款問題可電郵至 <a href="mailto:triboholic@gmail.com">triboholic@gmail.com</a>。</p>
-      </section>
-
-      <section id="community-zh" class="policy-section" aria-labelledby="community-title-zh">
-        <p class="eyebrow">社群守則</p>
-        <h2 id="community-title-zh">友善、自願、零壓力</h2>
-        <p>Gymate 的目標是減少健身室尷尬，而不是降低安全。所有互動都屬自願。</p>
-        <div class="guideline-grid">
-          <article><h3>尊重同意</h3><p>揮手、訊息、Spot 請求或 Gymate 連結都不代表允許不受歡迎的接觸。</p></article>
-          <article><h3>保護私隱</h3><p>未經同意，不得拍攝、識別、追蹤、公開或分享他人的健身活動。</p></article>
-          <article><h3>保持真實</h3><p>使用自己的帳戶和真實資料。不得冒充、操控獎勵或建立欺騙性房間。</p></article>
-          <article><h3>保持安全</h3><p>不得威脅、騷擾、歧視、施加性壓力、跟蹤、詐騙或鼓勵危險行為。</p></article>
+        <div class="tool-panel rest-demo" id="panel-rest" role="tabpanel" aria-labelledby="tab-rest" tabindex="0" hidden>
+          <div class="breather-ring"><svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="98" class="ring-track"/><circle cx="110" cy="110" r="98" class="ring-progress" id="breather-progress" pathLength="100"/></svg><div><small>CATCH YOUR BREATH</small><strong id="breather-time">0:08</strong><span>Just a little breather.</span></div></div>
+          <button class="play-action" type="button" id="start-breather">Try an 8-second breather</button><p class="tool-caption" id="breather-status" role="status">Your next set can wait a moment.</p>
         </div>
-        <h3>禁止行為</h3>
-        <ul><li>騷擾、仇恨、威脅、性行為不當、跟蹤或重複不受歡迎接觸。</li><li>涉及任何未滿 18 歲人士的個人檔案或內容。</li><li>冒充、欺詐、垃圾訊息、商業招攬或操控獎勵。</li><li>未經同意分享私人訊息、相片、身份或位置。</li><li>造成可信身體傷害風險的指示或行為。</li><li>嘗試繞過封鎖、帳戶／裝置控制、審核或位置檢查。</li></ul>
-        <h3>使用安全工具</h3><p>如需分隔，請私下封鎖對方。請在相關個人檔案或對話舉報，讓報告包含適當內容。如屬 App 或帳戶問題，請在 Me 使用「舉報問題」。如有人有即時危險，請聯絡場地職員或當地緊急服務；Gymate 並非緊急服務。</p>
-      </section>
-
-      <section id="support-zh" class="policy-section contact-section" aria-labelledby="support-title-zh">
-        <p class="eyebrow">支援</p>
-        <h2 id="support-title-zh">我們會協助你找到合適處理方法</h2>
-        <p>已登入用戶可開啟「Me → 舉報問題」並取得不透明參考編號。如無法進入 App，請電郵並簡述問題；如有參考編號亦請附上。</p>
-        <a class="email-card" href="mailto:triboholic@gmail.com?subject=Gymate%20support%20request"><span>電郵支援</span><strong>triboholic@gmail.com</strong></a>
-        <p class="quiet">切勿傳送密碼、一次性登入碼、完整出生日期、精確健身室紀錄或其他人的私人資料。Gymate 支援並非緊急服務。</p>
-      </section>
-
-      <section id="delete-zh" class="policy-section delete-section" aria-labelledby="delete-title-zh">
-        <p class="eyebrow">刪除帳戶</p>
-        <h2 id="delete-title-zh">永久刪除你的 Gymate 帳戶</h2>
-        <div class="deletion-paths">
-          <article><span class="path-label">最快方法</span><h3>在 Gymate 內刪除</h3><ol><li>開啟 <strong>Me</strong> 分頁。</li><li>選擇 <strong>刪除帳戶</strong>。</li><li>閱讀後果並輸入 <strong>DELETE</strong>。</li><li>確認後，刪除程序立即開始。</li></ol></article>
-          <article><span class="path-label">無法進入 APP</span><h3>用電郵要求刪除</h3><p>請盡可能使用 Gymate 登入電郵寄出。我們會核實帳戶控制權並告知預計完成時間。切勿傳送密碼或 OTP。</p><a class="primary-action compact" href="mailto:triboholic@gmail.com?subject=Gymate%20account%20deletion%20request&body=Please%20delete%20my%20Gymate%20account.%0A%0AGymate%20nickname%20(optional)%3A%0AReason%20(optional)%3A">要求刪除帳戶</a></article>
-        </div>
-        <h3>會刪除甚麼</h3><p>認證帳戶、個人檔案、相片、到訪、最愛房間、揮手、訊息及對話、Gymate 連結、封鎖、舉報、支援票、訓練計劃、推送紀錄及其他相關 App 資料都會移除。共用房間可在不再識別你為創辦人的情況下保留。不透明安裝雜湊會在不包含用戶 ID 的情況下保留五日，期間該安裝不能建立另一個 Gymate 帳戶。</p>
-        <p>如無法自動撤銷「使用 Apple 登入」，請按照 Gymate 顯示的指示在 Apple 帳戶設定手動撤銷。</p>
-      </section>
-    </main>
-
-    <footer>
-      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span><span>GYMATE</span></a>
-      <p>Private by design · 以私隱為核心</p>
-      <p>Operated by Chow William · <a href="mailto:triboholic@gmail.com">triboholic@gmail.com</a></p>
-      <p>© 2026 Gymate</p>
-    </footer>
-  </body>
+      </div>
+    </div>
+    <p class="play-demo-note">A playful demo. No workout is saved.</p>
+  </section>
+  <section class="neighbourhood" id="nearby-gyms" aria-labelledby="nearby-title">
+    <div class="play-heading"><p class="play-eyebrow">A LITTLE FURTHER. A FEW MORE HELLOS.</p><h2 id="nearby-title">Same city.<br><em>More possibilities.</em></h2><p>Your gym isn’t the whole world. Widen the circle.</p></div>
+    <div class="reach-controls" role="group" aria-label="Explore sample coverage"><button type="button" data-range="2" aria-pressed="true">2 km</button><button type="button" data-range="10" aria-pressed="false">10 km</button><button type="button" data-range="20" aria-pressed="false">20 km</button></div>
+    <p class="reach-summary" id="reach-summary" role="status"><strong>2 gyms</strong> within reach. Tap one for a little inside look.</p>
+    <div class="neighbourhood-map" data-range="2">
+      <img src="assets/gym-neighbourhood.png" width="1536" height="1024" loading="lazy" alt="An illustrated fictional neighbourhood, with gyms among leafy streets and a small waterfront.">
+      <div class="coverage-ring" aria-hidden="true"></div>
+      <div class="map-gym gym-home"><button type="button" data-gym="harbour" aria-pressed="true" aria-controls="gym-insight"><span class="pin-name">Your gym</span></button></div>
+      <div class="map-gym gym-corner"><button type="button" data-gym="corner" aria-pressed="false" aria-controls="gym-insight"><span class="pin-name">Corner Club</span></button></div>
+      <div class="map-gym gym-park"><button type="button" data-gym="park" aria-pressed="false" aria-controls="gym-insight" disabled><span class="pin-name">Park Studio</span></button></div>
+      <div class="map-gym gym-loft"><button type="button" data-gym="loft" aria-pressed="false" aria-controls="gym-insight" disabled><span class="pin-name">The Loft</span></button></div>
+      <div class="map-gathering" id="map-gathering" aria-hidden="true"></div>
+      <span class="map-key">Fictional neighbourhood · not to scale</span>
+    </div>
+    <div class="gym-snapshot" id="gym-insight" aria-labelledby="snapshot-title" aria-live="polite" aria-atomic="true">
+      <p class="snapshot-hint">A LITTLE INSIDE LOOK · SAMPLE INSIGHTS</p>
+      <h3 id="snapshot-title">Your gym · Harbour Fit</h3>
+      <div class="snapshot-crowd" id="snapshot-crowd" aria-hidden="true"></div>
+      <div class="insight-now"><p class="snapshot-count" id="snapshot-count"><strong>20–30</strong> people checked in</p><span class="busy-label" id="snapshot-busy">Moderate</span></div>
+      <div class="insight-mix" id="snapshot-mix"><p class="insight-label">A feel for the mix</p><div class="mix-bar" aria-hidden="true"><span id="mix-women"></span><span id="mix-men"></span></div><div class="mix-labels"><span id="women-label">Women ≈40%</span><span id="men-label">Men ≈60%</span></div></div>
+      <p class="mix-unavailable" id="mix-unavailable" hidden>A small crowd today. Gender mix stays private until there’s enough data.</p>
+      <p class="insight-peak" id="snapshot-peak">Peak hours · Mon 18:00–20:00 UTC</p>
+      <p class="snapshot-detail" id="snapshot-detail">Your starting point. A familiar room, a few new faces.</p>
+    </div>
+    <p class="save-gym-copy">Save your regular gyms.<br><strong>Get a feel for the crowd before you go.</strong></p>
+    <p class="play-demo-note">Crowd Insights live in Favorite Gyms; distance controls discovery, not access to statistics.<br>Sample ranges, gender mix and peak times—not live data. Based on Gymley check-ins, not everyone in the gym.<br>Illustrated people are decorative. No individual locations are shown.</p>
+  </section>
+  </main>
+  <footer class="credits"><span>Gymley · iPhone first, coming soon</span><nav aria-label="Legal and support"><a href="legal/#privacy-en">Privacy</a><a href="legal/#terms-en">Terms</a><a href="legal/#community-en">Community</a><a href="legal/#support-en">Support</a><a href="legal/#delete-en">Delete account</a></nav><span>Characters by <a href="https://www.openpeeps.com/">Open Peeps</a> · Crowd by <a href="https://skiper-ui.com/">Skiper UI</a></span></footer>
+</body>
 </html>

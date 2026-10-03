@@ -1,7 +1,9 @@
-# Gymate Legal Site
+# Gymley Website
 
-Public bilingual legal and support information for Gymate. This repository
-contains no application source, user data, database credentials, or private
-configuration.
+Public Gymley product website with bilingual legal and support information. The
+homepage is served from the repository root and legal documents live under
+`/legal/`.
 
-Published with GitHub Pages.
+The canonical domain is `https://gymley.app` and the site is published with
+GitHub Pages. This repository contains no application source, user data,
+database credentials, or private configuration.
