@@ -1,8 +1,5 @@
 /* The opening is deliberately untouched. This is the second, scroll-led preview. */
-.story-invitation{text-align:center;padding:4px 20px 54px;background:#fff}
-.story-invitation a{color:var(--ink);font-size:14px;text-decoration:none}
-.story-invitation span{display:block;margin-top:14px;font-size:25px}
-.wave-story{position:relative;background:#ecf6f1}
+.wave-story{position:relative;background:linear-gradient(#fff,#ecf6f1 240px)}
 .story-stage{max-width:1440px;margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px;padding:70px clamp(30px,7vw,110px)}
 .story-copy{position:relative;z-index:1}
 .story-eyebrow{font-size:12px;letter-spacing:.2em;margin:0 0 25px;color:#427361}
@@ -66,7 +63,6 @@
  .story-stage{gap:30px;padding-inline:35px}.story-caption h2{font-size:48px}
 }
 @media(max-width:699px){
- .story-invitation{padding-bottom:38px}
  .story-stage{display:flex;flex-direction:column;gap:18px;padding:34px 20px}
  .story-copy{text-align:center;width:100%;flex:none}
  .story-phone{width:min(340px,calc(100vw - 56px));height:auto;aspect-ratio:1/2}
@@ -97,7 +93,6 @@
  .mutual-screen{padding-top:12px}.phone-kicker{margin-bottom:18px}.mutual-faces{margin-bottom:18px}.hello-pill{margin-top:18px;padding:11px}
  .demo-chat-head{padding-bottom:10px}.chat-mutual{padding:10px 0}.demo-messages{gap:12px}.story-message{padding:10px 12px}.demo-composer{padding-top:10px}
 }
-@media(prefers-reduced-motion:reduce){.story-invitation{display:none}}
 
 /* Full journey: one phone, one point of view. */
 .story-enhanced{height:1200svh}

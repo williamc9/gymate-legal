@@ -84,7 +84,10 @@
     const stats = document.createElement('span'); stats.className = 'pin-stats';
     const range = document.createElement('strong'); range.textContent = gym.range;
     const busy = document.createElement('span'); busy.className = 'pin-busy'; busy.textContent = gym.busy;
-    stats.append(range, busy);
+    const population = document.createElement('span'); population.className = 'pin-population';
+    const unit = document.createElement('span'); unit.className = 'pin-unit'; unit.textContent = 'people';
+    population.append(range, unit);
+    stats.append(population, busy);
     const mix = document.createElement('span'); mix.className = 'pin-mix';
     if (gym.women !== null) {
       const bar = document.createElement('span'); bar.className = 'mix-bar'; bar.setAttribute('aria-hidden', 'true');
@@ -104,7 +107,7 @@
     document.getElementById('snapshot-title').textContent = gym.name;
     document.getElementById('snapshot-count').replaceChildren();
     const count = document.createElement('strong'); count.textContent = gym.range;
-    document.getElementById('snapshot-count').append(count, ' Gymley members checked in');
+    document.getElementById('snapshot-count').append(count, ' people checked in');
     document.getElementById('snapshot-detail').textContent = gym.detail;
     const busy = document.getElementById('snapshot-busy');
     busy.textContent = gym.busy; busy.dataset.busy = gym.busy.toLowerCase();
@@ -116,7 +119,7 @@
       document.getElementById('women-label').textContent = `Women ≈${gym.women}%`;
       document.getElementById('men-label').textContent = `Men ≈${100 - gym.women}%`;
     }
-    document.getElementById('snapshot-peak').textContent = gym.peak ? `Usually liveliest · ${gym.peak}` : 'Peak hours? A little more history first.';
+    document.getElementById('snapshot-peak').textContent = gym.peak ? `Peak hours · ${gym.peak}` : 'Peak hours · Not enough data yet';
     const peeps = Array.from({ length: gym.peeps }, (_, i) => {
       const cell = (gym.spriteOffset + i * 3) % 105;
       const peep = document.createElement('span'); peep.className = 'snapshot-peep';

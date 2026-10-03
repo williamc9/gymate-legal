@@ -10,13 +10,13 @@
   <link rel="preload" as="font" href="assets/Baloo2-Bold.ttf" type="font/ttf" crossorigin>
   <link rel="preload" as="image" href="assets/gym-room-colour.png">
   <link rel="stylesheet" href="opening.css?v=2">
-  <link rel="stylesheet" href="story.css?v=2">
-  <link rel="stylesheet" href="playground.css?v=2">
+  <link rel="stylesheet" href="story.css?v=3">
+  <link rel="stylesheet" href="playground.css?v=3">
   <script defer src="assets/gsap.min.js"></script>
   <script defer src="crowd.js"></script>
   <script defer src="story.js?v=2"></script>
-  <script defer src="playground.js?v=3"></script>
-  <link rel="stylesheet" href="tools-demo.css?v=1">
+  <script defer src="playground.js?v=4"></script>
+  <link rel="stylesheet" href="tools-demo.css?v=2">
   <script defer src="tools-demo.js?v=1"></script>
 </head>
 <body>
@@ -35,19 +35,18 @@
       <canvas id="crowd" aria-hidden="true"></canvas>
     </div>
   </section>
-  <div class="story-invitation"><a href="#wave-story">See where a little Wave goes <span aria-hidden="true">↓</span></a></div>
   <section class="wave-story" id="wave-story" aria-label="A little Wave, a new conversation">
     <div class="story-stage">
       <div class="story-copy">
         <p class="story-eyebrow">ONE LITTLE WAVE.</p>
         <div class="story-captions">
-          <div class="story-caption" data-caption="0"><h2>Someone’s glad<br><em>you showed up.</em></h2><p>A Wave just arrived.<br> Who from? That stays a little mystery.</p></div>
+          <div class="story-caption" data-caption="0"><h2>Someone noticed you.<br><em>Wonder who?</em></h2><p>A Wave just arrived.<br> Who from? That stays a little mystery.</p></div>
           <div class="story-caption" data-caption="1"><h2>Who caught<br><em>your eye?</em></h2><p>Have a look around.<br> No clues. Just someone you’d like to know.</p></div>
           <div class="story-caption" data-caption="2"><h2>A little hello.<br><em>No big entrance.</em></h2><p>No speech to rehearse.<br> Just a Wave.</p></div>
-          <div class="story-caption" data-caption="3"><h2>Oh.<br> They noticed<br><em>you too.</em></h2><p>You both chose each other.<br> Now you both know.</p></div>
+          <div class="story-caption" data-caption="3"><h2>Looks like you caught<br><em>each other’s eye.</em></h2><p>You both chose each other.<br> Now you both know.</p></div>
           <div class="story-caption" data-caption="4"><h2>Look at you.<br><em>Talking already.</em></h2><p>Enjoy the moment. This chat disappears when either of you leaves the gym room.</p></div>
-          <div class="story-caption" data-caption="5"><h2>Some hellos<br><em>deserve a next time.</em></h2><p>Want to keep talking? Become Gymates to keep the conversation going.</p></div>
-          <div class="story-caption" data-caption="6"><h2>The workout ends.<br><em>This doesn’t have to.</em></h2><p>You both chose to stay connected.<br> Same chat. Even after the gym.</p></div>
+          <div class="story-caption" data-caption="5"><h2>Some chemistry<br><em>is worth keeping.</em></h2><p>Want to see where this goes? Choose each other as Gymates and keep talking.</p></div>
+          <div class="story-caption" data-caption="6"><h2>The workout’s over.<br><em>This could be<br> just starting.</em></h2><p>You both chose to stay connected.<br> Same chat. Even after the gym.</p></div>
         </div>
         <nav class="story-steps" aria-label="Conversation moments">
           <button type="button" data-step="0" aria-label="See the anonymous Wave" aria-current="step"><span>01</span></button>
@@ -58,7 +57,6 @@
           <button type="button" data-step="5" aria-label="Become Gymates"><span>06</span></button>
           <button type="button" data-step="6" aria-label="Keep talking after the gym"><span>07</span></button>
         </nav>
-        <p class="scroll-note">Keep scrolling. Let it happen.</p>
       </div>
       <div class="phone-wrap">
         <div class="story-phone" aria-label="Illustrative Gymley conversation between Mina and Ethan">
@@ -111,7 +109,7 @@
             </div>
             <div class="later-screen chat-screen story-screen" data-screen="later">
               <div class="demo-chat-head"><span aria-hidden="true">‹</span><div class="story-portrait mina" role="img" aria-label="Mina"></div><div><h3>Mina</h3><p>GYMATE</p></div><img src="../website/assets/gymate-confirmed.png" alt="Gymates"></div>
-              <div class="chat-mutual">A hello worth keeping.</div>
+              <div class="chat-mutual">Some chemistry is worth keeping.</div>
               <div class="demo-messages">
                 <div class="story-message incoming history-message"><span class="sr-only">Earlier, Mina: </span>One more set.<br>Then you’re on.</div>
                 <div class="later-time">LATER THAT EVENING</div>
@@ -127,25 +125,15 @@
       </div>
     </div>
     <div class="story-transcript">
-      <h2>One little Wave. A hello worth keeping.</h2>
+      <h2>One little Wave. A little chemistry.</h2>
       <ol><li>A Wave arrives anonymously. The sender’s identity stays private.</li><li>You notice Mina in the gym room and choose to Wave.</li><li>It’s mutual: Mina independently chose you, too.</li><li>You start chatting as Waveies. This chat disappears when either of you leaves the gym room.</li><li>You add Mina as a Gymate. Mina chooses to add you, too. Only then are you Gymates.</li><li>Later that evening, the same conversation continues—even after the gym.</li></ol>
     </div>
   </section>
-  <section class="gym-playground" id="gym-tools" aria-labelledby="tools-title">
-    <div class="play-heading"><p class="play-eyebrow">FOR THE WORKOUT, TOO.</p><h2 id="tools-title">A little help<br><em>between hellos.</em></h2><p>Pick something from the bench. Give it a try.</p></div>
-    <div class="bench-layout">
-      <div class="bench-scene">
-        <div class="bench-art"><img class="bench-illustration" src="assets/gym-bench.png" width="1536" height="1024" loading="lazy" alt="A hand-drawn gym bench with dumbbells, a workout notebook and a yellow stopwatch."><button class="bench-object object-weight" type="button" data-pick-tool="spot" aria-label="Try Ask a spot with the dumbbells"></button><button class="bench-object object-notebook" type="button" data-pick-tool="program" aria-label="Open the workout notebook"></button><button class="bench-object object-watch" type="button" data-pick-tool="rest" aria-label="Try the stopwatch"></button></div>
-        <div class="bench-tabs" role="tablist" aria-label="Try a gym tool">
-          <button type="button" role="tab" id="tab-spot" aria-controls="panel-spot" aria-selected="true" data-tool="spot"><span>01</span>Ask a spot</button>
-          <button type="button" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="false" tabindex="-1" data-tool="program"><span>02</span>Your program</button>
-          <button type="button" role="tab" id="tab-rest" aria-controls="panel-rest" aria-selected="false" tabindex="-1" data-tool="rest"><span>03</span>Rest timer</button>
-        </div>
-      </div>
-      <div class="tool-stage">
-        <div class="tool-panel spot-demo" id="panel-spot" role="tabpanel" aria-labelledby="tab-spot" tabindex="0">
+  <section class="spot-chapter" id="ask-a-spot" aria-labelledby="spot-title">
+    <div class="spot-chapter-layout">
+      <div class="spot-chapter-copy"><p class="play-eyebrow">ANOTHER WAY TO BREAK THE ICE.</p><h2 id="spot-title">Need a hand?<br><em>There’s your opening.</em></h2><p>One request reaches the people in your gym.<br>A little help can be a pretty good start.</p></div>
+      <div class="spot-demo" id="panel-spot" role="group" aria-label="Try Ask a Spot">
           <p class="notebook-label">ONE REQUEST. A ROOM OF HELPING HANDS.</p>
-          <h3 class="tool-title">Ask the gym, not a stranger.</h3>
           <div class="spot-network" id="spot-network" data-state="idle">
             <svg class="spot-connections" viewBox="0 0 360 280" preserveAspectRatio="none" aria-hidden="true"><path d="M180 140 L60 40 M180 140 L180 35 M180 140 L300 40 M180 140 L60 240 M180 140 L180 245 M180 140 L300 240"/></svg>
             <div class="spot-requester"><div class="story-portrait mina" role="img" aria-label="Mina, requesting a spot"></div><strong>Mina</strong><span id="spot-station-label">Bench · a little help?</span></div>
@@ -155,8 +143,21 @@
           <button class="play-action" type="button" id="send-spot-demo">Send spot request</button>
           <p class="tool-caption" id="spot-status" role="status">Mina needs a hand. Let the people in her gym know.</p>
           <p class="spot-demo-note">Illustrative room. First person to accept takes it.</p>
+      </div>
+    </div>
+  </section>
+  <section class="gym-playground" id="gym-tools" aria-labelledby="tools-title">
+    <div class="play-heading"><p class="play-eyebrow">FOR THE WORKOUT, TOO.</p><h2 id="tools-title">Your session.<br><em>Your rhythm.</em></h2><p>A plan of your own. A breather when you need one.</p></div>
+    <div class="bench-layout">
+      <div class="bench-scene">
+        <div class="bench-art"><img class="bench-illustration" src="assets/gym-bench.png" width="1536" height="1024" loading="lazy" alt="A hand-drawn gym bench with dumbbells, a workout notebook and a yellow stopwatch."><button class="bench-object object-notebook" type="button" data-pick-tool="program" aria-label="Open the workout notebook"></button><button class="bench-object object-watch" type="button" data-pick-tool="rest" aria-label="Try the stopwatch"></button></div>
+        <div class="bench-tabs" role="tablist" aria-label="Try a gym tool">
+          <button type="button" role="tab" id="tab-program" aria-controls="panel-program" aria-selected="true" data-tool="program"><span>01</span>Your program</button>
+          <button type="button" role="tab" id="tab-rest" aria-controls="panel-rest" aria-selected="false" tabindex="-1" data-tool="rest"><span>02</span>Rest timer</button>
         </div>
-        <div class="tool-panel" id="panel-program" role="tabpanel" aria-labelledby="tab-program" tabindex="0" hidden>
+      </div>
+      <div class="tool-stage">
+        <div class="tool-panel" id="panel-program" role="tabpanel" aria-labelledby="tab-program" tabindex="0">
           <div class="workout-notebook"><p class="notebook-label">A LITTLE PLAN. ENTIRELY YOURS.</p>
             <form id="create-demo-program"><h3>What’s the plan?</h3><label for="demo-program-name">Give your program a name</label><input id="demo-program-name" maxlength="40" placeholder="e.g. My Monday reset" autocomplete="off" required><button class="play-action" id="create-demo-button" type="submit" disabled>Create program</button></form>
             <div id="demo-program-builder" hidden>
@@ -179,8 +180,7 @@
         </div>
       </div>
     </div>
-    <p class="play-demo-note">A playful demo. No real spot request or workout is created.</p>
-    <a class="next-play" href="#nearby-gyms">Now, look a little further <span aria-hidden="true">↓</span></a>
+    <p class="play-demo-note">A playful demo. No workout is saved.</p>
   </section>
   <section class="neighbourhood" id="nearby-gyms" aria-labelledby="nearby-title">
     <div class="play-heading"><p class="play-eyebrow">A LITTLE FURTHER. A FEW MORE HELLOS.</p><h2 id="nearby-title">Same city.<br><em>More possibilities.</em></h2><p>Your gym isn’t the whole world. Widen the circle.</p></div>
@@ -200,10 +200,10 @@
       <p class="snapshot-hint">A LITTLE INSIDE LOOK · SAMPLE INSIGHTS</p>
       <h3 id="snapshot-title">Your gym · Harbour Fit</h3>
       <div class="snapshot-crowd" id="snapshot-crowd" aria-hidden="true"></div>
-      <div class="insight-now"><p class="snapshot-count" id="snapshot-count"><strong>20–30</strong> Gymley members checked in</p><span class="busy-label" id="snapshot-busy">Moderate</span></div>
+      <div class="insight-now"><p class="snapshot-count" id="snapshot-count"><strong>20–30</strong> people checked in</p><span class="busy-label" id="snapshot-busy">Moderate</span></div>
       <div class="insight-mix" id="snapshot-mix"><p class="insight-label">A feel for the mix</p><div class="mix-bar" aria-hidden="true"><span id="mix-women"></span><span id="mix-men"></span></div><div class="mix-labels"><span id="women-label">Women ≈40%</span><span id="men-label">Men ≈60%</span></div></div>
       <p class="mix-unavailable" id="mix-unavailable" hidden>A small crowd today. Gender mix stays private until there’s enough data.</p>
-      <p class="insight-peak" id="snapshot-peak">Usually liveliest · Mon 18:00–20:00 UTC</p>
+      <p class="insight-peak" id="snapshot-peak">Peak hours · Mon 18:00–20:00 UTC</p>
       <p class="snapshot-detail" id="snapshot-detail">Your starting point. A familiar room, a few new faces.</p>
     </div>
     <p class="save-gym-copy">Save your regular gyms.<br><strong>Get a feel for the crowd before you go.</strong></p>
