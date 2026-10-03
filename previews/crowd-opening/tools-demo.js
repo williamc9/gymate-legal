@@ -9,6 +9,11 @@
   };
   // Fictional recipients. No messages, permissions, persistence or API calls.
   const people = ['Jo', 'Kai', 'Ava', 'Sam', 'May', 'Leo'];
+  // Authored demo characters, not inferred data about real people.
+  const genders = ['woman', 'man', 'woman', 'man', 'woman', 'man'];
+  let preference = 'anyone';
+  const eligible = index => preference === 'anyone' || genders[index] === preference;
+  const audience = () => preference === 'anyone' ? 'people' : preference === 'man' ? 'men' : 'women';
   let spotState = 'idle';
   let station = 'Bench';
   let pending = [];
@@ -24,13 +29,13 @@
     button.append(peep, make('strong', name), badge);
     button.setAttribute('aria-label', `${name}, in the same gym`);
     button.addEventListener('click', () => {
-      if (spotState !== 'delivered') return;
+      if (spotState !== 'delivered' || !eligible(index)) return;
       spotState = 'accepted'; $('spot-network').dataset.state = spotState;
       recipients.forEach((person, i) => {
         person.button.disabled = true;
         person.button.classList.toggle('is-helper', i === index);
-        person.badge.textContent = i === index ? 'On my way!' : 'Taken';
-        person.button.setAttribute('aria-label', i === index ? `${name} accepted and is on the way` : `${people[i]}: request taken by ${name}`);
+        person.badge.textContent = i === index ? 'On my way!' : eligible(i) ? 'Taken' : '';
+        person.button.setAttribute('aria-label', !eligible(i) ? `${people[i]}, not included in this request` : i === index ? `${name} accepted and is on the way` : `${people[i]}: request taken by ${name}`);
       });
       $('spot-status').textContent = `${name} accepted. “On my way to the ${station === 'Squat' ? 'squat rack' : 'bench'}!” One helper takes it; the request closes for everyone else. (Demo)`;
       $('send-spot-demo').textContent = 'Try another request';
@@ -40,17 +45,27 @@
     return { button, badge };
   });
   const clearDelivery = () => { pending.forEach(clearTimeout); pending = []; };
+  function updateAudience() {
+    const paths = document.querySelectorAll('.spot-connections path');
+    recipients.forEach(({button}, i) => {
+      button.classList.toggle('is-excluded', !eligible(i));
+      paths[i].classList.toggle('is-excluded', !eligible(i));
+      button.setAttribute('aria-label', eligible(i) ? `${people[i]}, in the same gym` : `${people[i]}, not included in this request`);
+    });
+    $('spot-status').textContent = `Mina needs a hand. Ask the ${audience()} in her gym.`;
+  }
   function resetSpot() {
     clearDelivery(); spotState = 'idle'; $('spot-network').dataset.state = spotState;
     recipients.forEach(({button, badge}, i) => {
       button.disabled = true; button.classList.remove('is-received', 'is-helper'); badge.textContent = '';
       button.setAttribute('aria-label', `${people[i]}, in the same gym`);
     });
-    document.querySelectorAll('[data-station]').forEach(button => button.disabled = false);
+    document.querySelectorAll('[data-station], [data-spot-preference]').forEach(button => button.disabled = false);
     $('send-spot-demo').disabled = false; $('send-spot-demo').textContent = 'Send spot request';
-    $('spot-status').textContent = 'Mina needs a hand. Let the people in her gym know.';
+    updateAudience();
   }
   function deliver(index) {
+    if (!eligible(index)) return;
     const {button, badge} = recipients[index];
     button.classList.add('is-received'); badge.textContent = 'Spot?';
     button.setAttribute('aria-label', `${people[index]} received Mina’s ${station.toLowerCase()} request. Accept as ${people[index]}`);
@@ -59,18 +74,18 @@
     if (spotState !== 'sending') return;
     clearDelivery(); recipients.forEach((_, i) => deliver(i));
     spotState = 'delivered'; $('spot-network').dataset.state = spotState;
-    recipients.forEach(({button}) => button.disabled = false);
+    recipients.forEach(({button}, i) => button.disabled = !eligible(i));
     $('send-spot-demo').disabled = false; $('send-spot-demo').textContent = 'Reset request';
-    $('spot-status').textContent = 'Six people in Mina’s gym received it. Tap one of them to play the helper.';
+    $('spot-status').textContent = `${preference === 'anyone' ? 'Six' : 'Three'} ${audience()} in Mina’s gym received it. Tap one of them to play the helper.`;
   }
   $('send-spot-demo').addEventListener('click', () => {
     if (spotState !== 'idle') { resetSpot(); return; }
     spotState = 'sending'; $('spot-network').dataset.state = spotState;
-    document.querySelectorAll('[data-station]').forEach(button => button.disabled = true);
+    document.querySelectorAll('[data-station], [data-spot-preference]').forEach(button => button.disabled = true);
     $('send-spot-demo').disabled = true; $('send-spot-demo').textContent = 'Asking the gym…';
-    $('spot-status').textContent = 'One request, reaching the people in this gym…';
+    $('spot-status').textContent = `One request, reaching the ${audience()} in this gym…`;
     if (reducedMotion.matches) { finishDelivery(); return; }
-    recipients.forEach((_, i) => pending.push(setTimeout(() => deliver(i), 250 + i * 220)));
+    recipients.map((_, i) => i).filter(eligible).forEach((index, order) => pending.push(setTimeout(() => deliver(index), 250 + order * 220)));
     pending.push(setTimeout(finishDelivery, 1700));
   });
   document.querySelectorAll('[data-station]').forEach(button => button.addEventListener('click', () => {
@@ -78,6 +93,12 @@
     station = button.dataset.station;
     document.querySelectorAll('[data-station]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     $('spot-station-label').textContent = `${station} · a little help?`;
+  }));
+  document.querySelectorAll('[data-spot-preference]').forEach(button => button.addEventListener('click', () => {
+    if (spotState !== 'idle') return;
+    preference = button.dataset.spotPreference;
+    document.querySelectorAll('[data-spot-preference]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    updateAudience();
   }));
   document.addEventListener('visibilitychange', () => { if (document.hidden) finishDelivery(); });
   new IntersectionObserver(entries => { if (!entries[0].isIntersecting) finishDelivery(); }).observe($('panel-spot'));

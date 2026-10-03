@@ -16,8 +16,8 @@
   <script defer src="crowd.js"></script>
   <script defer src="story.js?v=2"></script>
   <script defer src="playground.js?v=4"></script>
-  <link rel="stylesheet" href="tools-demo.css?v=2">
-  <script defer src="tools-demo.js?v=1"></script>
+  <link rel="stylesheet" href="tools-demo.css?v=4">
+  <script defer src="tools-demo.js?v=2"></script>
 </head>
 <body>
   <main>
@@ -135,11 +135,13 @@
       <div class="spot-demo" id="panel-spot" role="group" aria-label="Try Ask a Spot">
           <p class="notebook-label">ONE REQUEST. A ROOM OF HELPING HANDS.</p>
           <div class="spot-network" id="spot-network" data-state="idle">
-            <svg class="spot-connections" viewBox="0 0 360 280" preserveAspectRatio="none" aria-hidden="true"><path d="M180 140 L60 40 M180 140 L180 35 M180 140 L300 40 M180 140 L60 240 M180 140 L180 245 M180 140 L300 240"/></svg>
+            <svg class="spot-connections" viewBox="0 0 360 280" preserveAspectRatio="none" aria-hidden="true"><path d="M180 140 L60 40"/><path d="M180 140 L180 35"/><path d="M180 140 L300 40"/><path d="M180 140 L60 240"/><path d="M180 140 L180 245"/><path d="M180 140 L300 240"/></svg>
             <div class="spot-requester"><div class="story-portrait mina" role="img" aria-label="Mina, requesting a spot"></div><strong>Mina</strong><span id="spot-station-label">Bench · a little help?</span></div>
             <div id="spot-recipients"></div>
           </div>
           <div class="spot-stations" role="group" aria-label="Choose Mina’s station"><button type="button" data-station="Bench" aria-pressed="true">Bench</button><button type="button" data-station="Squat" aria-pressed="false">Squat</button></div>
+          <p class="spot-preference-label" id="spot-preference-label">Who would you like a hand from?</p>
+          <div class="spot-stations spot-preferences" role="group" aria-labelledby="spot-preference-label"><button type="button" data-spot-preference="man" aria-pressed="false">Man</button><button type="button" data-spot-preference="woman" aria-pressed="false">Woman</button><button type="button" data-spot-preference="anyone" aria-pressed="true">Anyone</button></div>
           <button class="play-action" type="button" id="send-spot-demo">Send spot request</button>
           <p class="tool-caption" id="spot-status" role="status">Mina needs a hand. Let the people in her gym know.</p>
           <p class="spot-demo-note">Illustrative room. First person to accept takes it.</p>

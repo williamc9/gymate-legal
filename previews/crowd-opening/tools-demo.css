@@ -1,15 +1,15 @@
 /* Only the two revised demos. The rest timer and map retain their styles. */
 .spot-chapter{background:linear-gradient(#ecf6f1,#f5faf7 40%,#fff);padding:70px 28px 80px;overflow:clip}
-.spot-chapter-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;max-width:1140px;margin:auto}
+.spot-chapter-layout{display:grid;grid-template-columns:1fr;gap:30px;justify-items:center;max-width:1140px;margin:auto}.spot-chapter-copy{text-align:center}
 .spot-chapter-copy h2{font:700 clamp(40px,4.6vw,66px)/1.04 Baloo,sans-serif;letter-spacing:-.035em;margin:0}.spot-chapter-copy h2 em{font-style:normal;color:#078367}
-.spot-chapter-copy>p:last-child{font-size:17px;line-height:1.7;color:#526b60;max-width:36ch;margin:22px 0 0}
-.spot-chapter .spot-demo{width:100%;max-width:420px;justify-self:center;padding:24px 12px 10px}
+.spot-chapter-copy>p:last-child{font-size:17px;line-height:1.7;color:#526b60;max-width:42ch;margin:22px auto 0}
+.spot-chapter .spot-demo{width:100%;max-width:580px;justify-self:center;padding:12px 12px 10px}
 .spot-chapter .spot-network{isolation:isolate}.spot-chapter .spot-requester{background:#f4faf6}
-@media(max-width:850px){.spot-chapter{padding:55px 24px 45px}.spot-chapter-layout{grid-template-columns:1fr;gap:22px}.spot-chapter-copy{text-align:center}.spot-chapter-copy>p:last-child{margin:20px auto 0}.spot-chapter .spot-demo{max-width:390px}}
-@media(max-width:600px){.spot-chapter{padding:45px 18px 35px}.spot-chapter-copy h2{font-size:clamp(37px,10vw,52px)}.spot-chapter-copy>p:last-child{font-size:14px}.spot-chapter .spot-demo{padding:18px 6px 0;max-width:340px}}
+@media(max-width:850px){.spot-chapter{padding:55px 24px 45px}.spot-chapter-layout{gap:22px}.spot-chapter-copy>p:last-child{margin:20px auto 0}}
+@media(max-width:600px){.spot-chapter{padding:45px 18px 35px}.spot-chapter-copy h2{font-size:clamp(37px,10vw,52px)}.spot-chapter-copy>p:last-child{font-size:14px}.spot-chapter .spot-demo{padding:18px 0 0;max-width:440px}}
 .tool-title{font:700 30px/1.1 Baloo,sans-serif;margin:0 0 12px}
 .spot-demo{text-align:center}.spot-demo .notebook-label{line-height:1.6}
-.spot-network{position:relative;width:100%;height:300px;margin:12px 0 8px}
+.spot-network{position:relative;width:100%;height:380px;margin:12px 0 8px}
 .spot-connections{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .spot-connections path{fill:none;stroke:#dee9de;stroke-width:2;stroke-dasharray:5 7}
 .spot-network[data-state=sending] .spot-connections path{stroke:#efb21b;animation:spot-send 1s linear 2}
@@ -17,15 +17,16 @@
 @keyframes spot-send{to{stroke-dashoffset:-48}}
 .spot-requester{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;flex-direction:column;background:#fffef4;padding:10px 8px;border-radius:25px;gap:4px;width:150px}
 .spot-requester .story-portrait{width:58px;height:58px;border:3px solid #ffcc42}.spot-requester strong{font-size:14px}.spot-requester>span{font-size:11px;color:#56745f}
-.spot-recipient{position:absolute;width:82px;height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #e3eadd;border-radius:20px;background:#fff;transform:translate(-50%,-50%);color:#173c2c;cursor:pointer;padding:5px;transition:background .2s,box-shadow .2s}
+.spot-recipient{position:absolute;width:100px;height:104px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #e3eadd;border-radius:20px;background:#fff;transform:translate(-50%,-50%);color:#173c2c;cursor:pointer;padding:5px;transition:background .2s,box-shadow .2s}
 .spot-recipient:nth-child(1){left:16%;top:16%}.spot-recipient:nth-child(2){left:50%;top:13%}.spot-recipient:nth-child(3){left:84%;top:16%}.spot-recipient:nth-child(4){left:16%;top:84%}.spot-recipient:nth-child(5){left:50%;top:87%}.spot-recipient:nth-child(6){left:84%;top:84%}
-.spot-recipient strong{font-size:11px}.spot-recipient:disabled{cursor:default}.spot-peep{width:38px;height:48px;background-image:url('assets/all-peeps.png');background-size:1500% 700%;background-repeat:no-repeat;display:block}
+.spot-recipient strong{font-size:13px}.spot-recipient:disabled{cursor:default}.spot-peep{width:46px;height:58px;background-image:url('assets/all-peeps.png');background-size:1500% 700%;background-repeat:no-repeat;display:block}
 .spot-ping{position:absolute;top:-10px;right:-5px;background:#ffca38;border-radius:10px;padding:4px 6px;font-size:10px;font-weight:600;box-shadow:0 2px 0 #d09a2340;white-space:nowrap}.spot-ping:empty{display:none}
 .spot-recipient.is-received{background:#fff6d4;border-color:#edc24b;box-shadow:0 0 0 3px #ffca3820}
 .spot-recipient.is-received:not(:disabled):hover{background:#d9f4e4;border-color:#1e8d66}
 .spot-recipient.is-helper{background:#d9f4e4;border:2px solid #12865d}.spot-recipient.is-helper .spot-ping{background:#0a7555;color:white}
 .spot-network[data-state=accepted] .spot-recipient:not(.is-helper){opacity:.55}
 .spot-stations{display:flex;gap:8px;justify-content:center;margin:17px 0 14px}.spot-stations button{min-height:44px;padding:8px 18px;border:1px solid #d6e4d4;border-radius:22px;background:white;color:#214831;cursor:pointer}.spot-stations button[aria-pressed=true]{background:#edf8ed;border-color:#218563}.spot-stations button:disabled{cursor:default}
+.spot-preference-label{font-size:13px;color:#526b60;margin:20px 0 0}.spot-preferences{margin:8px 0 20px;flex-wrap:wrap}.spot-preferences button{padding-inline:12px}.spot-stations button:focus-visible{outline:3px solid #078367;outline-offset:3px}.spot-recipient.is-excluded{opacity:.3!important}.spot-connections path.is-excluded{opacity:.15;animation:none!important;stroke:#dee9de!important}
 .spot-demo .tool-caption{min-height:63px;margin-top:14px}.spot-demo-note{font-size:11px;line-height:1.5;color:#6c7c6a;margin:12px 0 0}
 #panel-program .workout-notebook{transform:none;padding:22px 20px;min-width:0}#demo-program-title{overflow-wrap:anywhere}
 #panel-program [hidden]{display:none!important}
@@ -40,5 +41,5 @@
 #panel-program .exercise-settings label{margin-top:9px}#panel-program .exercise-settings select{padding:8px 5px}
 #panel-program .exercise-order li{flex-wrap:wrap;gap:8px}#panel-program .move-copy{flex:1 1 150px;min-width:0}#panel-program .move-copy small{line-height:1.6}#panel-program .move-actions{display:flex;gap:4px;margin-left:auto}#panel-program .move-actions button{width:36px;height:38px;font-size:18px}
 #panel-program .tool-caption{min-height:42px}#panel-program .notebook-label{line-height:1.6}
-@media(max-width:600px){.tool-title{font-size:28px}.spot-network{height:275px}.spot-recipient{width:68px;height:77px}.spot-requester{width:126px;padding:7px}.spot-requester .story-portrait{width:48px;height:48px}.spot-requester>span{font-size:10px}.spot-ping{font-size:9px;right:-3px}.spot-demo-note{font-size:10px}#panel-program .workout-notebook{padding:19px 14px}#panel-program .move-copy{flex-basis:100%}#panel-program .move-actions{margin-left:0}}
+@media(max-width:600px){.tool-title{font-size:28px}.spot-network{height:300px}.spot-recipient{width:72px;height:84px}.spot-peep{width:38px;height:48px}.spot-requester{width:126px;padding:7px}.spot-requester .story-portrait{width:48px;height:48px}.spot-requester>span{font-size:10px}.spot-ping{font-size:9px;right:-3px}.spot-demo-note{font-size:10px}#panel-program .workout-notebook{padding:19px 14px}#panel-program .move-copy{flex-basis:100%}#panel-program .move-actions{margin-left:0}}
 @media(prefers-reduced-motion:reduce){.spot-network[data-state=sending] .spot-connections path{animation:none}.spot-recipient{transition:none}}
