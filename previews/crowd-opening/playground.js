@@ -95,26 +95,56 @@
 
   // Fictional, fixed marketing demo data. No location permission or backend request.
   const gyms = {
-    harbour: { name: 'Your gym · Harbour Fit', count: 4, distance: 0, detail: 'Your starting point. A familiar room, a few new faces.', spriteOffset: 2 },
-    corner: { name: 'Corner Club', count: 7, distance: 1.2, detail: '1.2 km away in this demo. Just around the corner.', spriteOffset: 18 },
-    park: { name: 'Park Studio', count: 12, distance: 7.4, detail: '7.4 km away in this demo. Different gym. More people to meet.', spriteOffset: 35 },
-    loft: { name: 'The Loft', count: 6, distance: 15.6, detail: '15.6 km away in this demo. A little further, still within reach.', spriteOffset: 59 }
+    harbour: { name: 'Your gym · Harbour Fit', range: '20–30', busy: 'Moderate', women: 40, peak: 'Mon 18:00–20:00 UTC', peeps: 6, distance: 0, detail: 'Your starting point. A familiar room, a few new faces.', spriteOffset: 2 },
+    corner: { name: 'Corner Club', range: '0–10', busy: 'Quiet', women: null, peak: null, peeps: 3, distance: 1.2, detail: '1.2 km away in this demo. Just around the corner.', spriteOffset: 18 },
+    park: { name: 'Park Studio', range: '30–40', busy: 'Busy', women: 55, peak: 'Sat 10:00–12:00 UTC', peeps: 9, distance: 7.4, detail: '7.4 km away in this demo. Different gym. More people to meet.', spriteOffset: 35 },
+    loft: { name: 'The Loft', range: '10–20', busy: 'Moderate', women: 65, peak: 'Thu 16:00–18:00 UTC', peeps: 5, distance: 15.6, detail: '15.6 km away in this demo. A little further, still within reach.', spriteOffset: 59 }
   };
   const rangeButtons = [...document.querySelectorAll('.reach-controls button')];
   const gymButtons = [...document.querySelectorAll('[data-gym]')];
   const map = document.querySelector('.neighbourhood-map');
   const crowd = document.getElementById('snapshot-crowd');
   let selectedGym = 'harbour';
+  // The same four categories as Favorite Gyms, with fictional banded values.
+  gymButtons.forEach(button => {
+    const gym = gyms[button.dataset.gym];
+    const stats = document.createElement('span'); stats.className = 'pin-stats';
+    const range = document.createElement('strong'); range.textContent = gym.range;
+    const busy = document.createElement('span'); busy.className = 'pin-busy'; busy.textContent = gym.busy;
+    stats.append(range, busy);
+    const mix = document.createElement('span'); mix.className = 'pin-mix';
+    if (gym.women !== null) {
+      const bar = document.createElement('span'); bar.className = 'mix-bar'; bar.setAttribute('aria-hidden', 'true');
+      const women = document.createElement('span'); women.style.width = `${gym.women}%`;
+      const men = document.createElement('span'); men.style.width = `${100 - gym.women}%`;
+      bar.append(women, men);
+      const labels = document.createElement('span'); labels.textContent = `Women ≈${gym.women}% · Men ≈${100 - gym.women}%`;
+      mix.append(bar, labels);
+    } else mix.textContent = 'Mix private · small crowd';
+    button.append(stats, mix);
+    button.dataset.busy = gym.busy.toLowerCase();
+  });
   function selectGym(id) {
     selectedGym = id;
     const gym = gyms[id];
     gymButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.gym === id)));
     document.getElementById('snapshot-title').textContent = gym.name;
     document.getElementById('snapshot-count').replaceChildren();
-    const count = document.createElement('strong'); count.textContent = String(gym.count);
+    const count = document.createElement('strong'); count.textContent = gym.range;
     document.getElementById('snapshot-count').append(count, ' Gymley members checked in');
     document.getElementById('snapshot-detail').textContent = gym.detail;
-    const peeps = Array.from({ length: gym.count }, (_, i) => {
+    const busy = document.getElementById('snapshot-busy');
+    busy.textContent = gym.busy; busy.dataset.busy = gym.busy.toLowerCase();
+    document.getElementById('snapshot-mix').hidden = gym.women === null;
+    document.getElementById('mix-unavailable').hidden = gym.women !== null;
+    if (gym.women !== null) {
+      document.getElementById('mix-women').style.width = `${gym.women}%`;
+      document.getElementById('mix-men').style.width = `${100 - gym.women}%`;
+      document.getElementById('women-label').textContent = `Women ≈${gym.women}%`;
+      document.getElementById('men-label').textContent = `Men ≈${100 - gym.women}%`;
+    }
+    document.getElementById('snapshot-peak').textContent = gym.peak ? `Usually liveliest · ${gym.peak}` : 'Peak hours? A little more history first.';
+    const peeps = Array.from({ length: gym.peeps }, (_, i) => {
       const cell = (gym.spriteOffset + i * 3) % 105;
       const peep = document.createElement('span'); peep.className = 'snapshot-peep';
       peep.style.backgroundPosition = `${(cell % 15) / 14 * 100}% ${Math.floor(cell / 15) / 6 * 100}%`;
@@ -123,7 +153,7 @@
     });
     crowd.replaceChildren(...peeps);
     const gathering = document.getElementById('map-gathering');
-    const point = { harbour: [53, 62], corner: [37, 78], park: [40, 35], loft: [83, 47] }[id];
+    const point = { harbour: [53, 55], corner: [37, 89], park: [40, 33], loft: [83, 51] }[id];
     gathering.style.left = `${point[0]}%`;
     gathering.style.top = `${point[1]}%`;
     gathering.replaceChildren(...peeps.map(peep => peep.cloneNode()));
@@ -132,13 +162,16 @@
     const range = Number(button.dataset.range);
     map.dataset.range = String(range);
     rangeButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    gymButtons.forEach(item => item.disabled = gyms[item.dataset.gym].distance > range);
+    gymButtons.forEach(item => {
+      item.disabled = gyms[item.dataset.gym].distance > range;
+      item.setAttribute('aria-label', item.disabled ? `${gyms[item.dataset.gym].name}, outside selected range` : `${gyms[item.dataset.gym].name}, ${gyms[item.dataset.gym].range} people, ${gyms[item.dataset.gym].busy}. Show sample Crowd Insights`);
+    });
     if (gyms[selectedGym].distance > range) selectGym('harbour');
     const within = Object.values(gyms).filter(gym => gym.distance <= range);
-    const total = within.reduce((sum, gym) => sum + gym.count, 0);
-    const strong = document.createElement('strong'); strong.textContent = `${total} people`;
-    document.getElementById('reach-summary').replaceChildren(strong, ` across ${within.length} gyms in this demo.`);
+    const strong = document.createElement('strong'); strong.textContent = `${within.length} gyms`;
+    document.getElementById('reach-summary').replaceChildren(strong, ' within reach. Tap one for a little inside look.');
   }));
   gymButtons.forEach(button => button.addEventListener('click', () => selectGym(button.dataset.gym)));
   selectGym(selectedGym);
+  rangeButtons.find(button => button.getAttribute('aria-pressed') === 'true').click();
 })();

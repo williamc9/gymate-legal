@@ -11,11 +11,11 @@
   <link rel="preload" as="image" href="assets/gym-room-colour.png">
   <link rel="stylesheet" href="opening.css?v=2">
   <link rel="stylesheet" href="story.css?v=2">
-  <link rel="stylesheet" href="playground.css?v=1">
+  <link rel="stylesheet" href="playground.css?v=2">
   <script defer src="assets/gsap.min.js"></script>
   <script defer src="crowd.js"></script>
   <script defer src="story.js?v=2"></script>
-  <script defer src="playground.js?v=1"></script>
+  <script defer src="playground.js?v=2"></script>
 </head>
 <body>
   <main>
@@ -169,19 +169,29 @@
   <section class="neighbourhood" id="nearby-gyms" aria-labelledby="nearby-title">
     <div class="play-heading"><p class="play-eyebrow">A LITTLE FURTHER. A FEW MORE HELLOS.</p><h2 id="nearby-title">Same city.<br><em>More possibilities.</em></h2><p>Your gym isn’t the whole world. Widen the circle.</p></div>
     <div class="reach-controls" role="group" aria-label="Explore sample coverage"><button type="button" data-range="2" aria-pressed="true">2 km</button><button type="button" data-range="10" aria-pressed="false">10 km</button><button type="button" data-range="20" aria-pressed="false">20 km</button></div>
-    <p class="reach-summary" id="reach-summary" role="status"><strong>11 people</strong> across 2 gyms in this demo.</p>
+    <p class="reach-summary" id="reach-summary" role="status"><strong>2 gyms</strong> within reach. Tap one for a little inside look.</p>
     <div class="neighbourhood-map" data-range="2">
       <img src="assets/gym-neighbourhood.png" width="1536" height="1024" loading="lazy" alt="An illustrated fictional neighbourhood, with gyms among leafy streets and a small waterfront.">
       <div class="coverage-ring" aria-hidden="true"></div>
-      <div class="map-gym gym-home"><button type="button" data-gym="harbour" aria-pressed="true"><span class="pin-number">4</span><span class="pin-name">Your gym</span></button></div>
-      <div class="map-gym gym-corner"><button type="button" data-gym="corner" aria-pressed="false"><span class="pin-number">7</span><span class="pin-name">Corner Club</span></button></div>
-      <div class="map-gym gym-park"><button type="button" data-gym="park" aria-pressed="false" disabled><span class="pin-number">12</span><span class="pin-name">Park Studio</span></button></div>
-      <div class="map-gym gym-loft"><button type="button" data-gym="loft" aria-pressed="false" disabled><span class="pin-number">6</span><span class="pin-name">The Loft</span></button></div>
+      <div class="map-gym gym-home"><button type="button" data-gym="harbour" aria-pressed="true" aria-controls="gym-insight"><span class="pin-name">Your gym</span></button></div>
+      <div class="map-gym gym-corner"><button type="button" data-gym="corner" aria-pressed="false" aria-controls="gym-insight"><span class="pin-name">Corner Club</span></button></div>
+      <div class="map-gym gym-park"><button type="button" data-gym="park" aria-pressed="false" aria-controls="gym-insight" disabled><span class="pin-name">Park Studio</span></button></div>
+      <div class="map-gym gym-loft"><button type="button" data-gym="loft" aria-pressed="false" aria-controls="gym-insight" disabled><span class="pin-name">The Loft</span></button></div>
       <div class="map-gathering" id="map-gathering" aria-hidden="true"></div>
       <span class="map-key">Fictional neighbourhood · not to scale</span>
     </div>
-    <div class="gym-snapshot" aria-labelledby="snapshot-title"><p class="snapshot-hint">TAP A GYM. GET A FEEL FOR THE ROOM.</p><h3 id="snapshot-title">Your gym · Harbour Fit</h3><div class="snapshot-crowd" id="snapshot-crowd" aria-hidden="true"></div><p class="snapshot-count" id="snapshot-count" role="status"><strong>4</strong> Gymley members checked in</p><p class="snapshot-detail" id="snapshot-detail">Your starting point. A familiar room, a few new faces.</p></div>
-    <p class="play-demo-note">Illustrative counts, not live data. Check-ins represent Gymley members—not everyone in the gym.<br>No individual locations are shown.</p>
+    <div class="gym-snapshot" id="gym-insight" aria-labelledby="snapshot-title" aria-live="polite" aria-atomic="true">
+      <p class="snapshot-hint">A LITTLE INSIDE LOOK · SAMPLE INSIGHTS</p>
+      <h3 id="snapshot-title">Your gym · Harbour Fit</h3>
+      <div class="snapshot-crowd" id="snapshot-crowd" aria-hidden="true"></div>
+      <div class="insight-now"><p class="snapshot-count" id="snapshot-count"><strong>20–30</strong> Gymley members checked in</p><span class="busy-label" id="snapshot-busy">Moderate</span></div>
+      <div class="insight-mix" id="snapshot-mix"><p class="insight-label">A feel for the mix</p><div class="mix-bar" aria-hidden="true"><span id="mix-women"></span><span id="mix-men"></span></div><div class="mix-labels"><span id="women-label">Women ≈40%</span><span id="men-label">Men ≈60%</span></div></div>
+      <p class="mix-unavailable" id="mix-unavailable" hidden>A small crowd today. Gender mix stays private until there’s enough data.</p>
+      <p class="insight-peak" id="snapshot-peak">Usually liveliest · Mon 18:00–20:00 UTC</p>
+      <p class="snapshot-detail" id="snapshot-detail">Your starting point. A familiar room, a few new faces.</p>
+    </div>
+    <p class="save-gym-copy">Save your regular gyms.<br><strong>Get a feel for the crowd before you go.</strong></p>
+    <p class="play-demo-note">Crowd Insights live in Favorite Gyms; distance controls discovery, not access to statistics.<br>Sample ranges, gender mix and peak times—not live data. Based on Gymley check-ins, not everyone in the gym.<br>Illustrated people are decorative. No individual locations are shown.</p>
   </section>
   </main>
   <footer class="credits"><span>Gymley</span><span>Characters by <a href="https://www.openpeeps.com/">Open Peeps</a> · Crowd by <a href="https://skiper-ui.com/">Skiper UI</a></span></footer>
