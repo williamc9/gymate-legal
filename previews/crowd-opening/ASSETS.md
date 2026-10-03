@@ -106,4 +106,6 @@ Added Man, Woman and Anyone preferences (Anyone by default). Fictional character
 
 Character mapping corrected: Jo, Kai and May are women; Ava, Sam and Leo are men. Artwork and names are unchanged; the request filter uses this mapping.
 
+Widened the centred spot demo from 580px to 1040px maximum, with responsive larger recipient cards, artwork, names and Mina portrait. Realigned diagram connectors to the card centres. Changed the heading to “Need a spotter?” and trialled the feature label “ASK A SPOT · IN THE APP”; other sections' copy/layout remain unchanged. Checked card bounds and pairwise overlap at 320, 390, 600, 601, 820 and 1440px; fixed the wider-phone spacing. Browser-verification checklist used the in-app browser fallback, including Woman delivery to Jo/Kai/May and Kai acceptance. No console warnings/errors observed.
+
 Verified Man/Bench delivery and Kai acceptance, Woman/Squat delivery and Ava acceptance, replay, and Anyone delivery to all six. Browser-verification checklist used the available in-app browser fallback. Checked 320px phone, 820px tablet and 1440px desktop without horizontal overflow; all three preference controls fit one row on the narrow phone with 44px tap heights. No console warnings/errors observed. Program, timer, map and app code are untouched.
