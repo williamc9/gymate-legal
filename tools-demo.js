@@ -140,7 +140,8 @@
     const options = catalogue[$('demo-muscle').value];
     $('demo-exercise-choice').hidden = !options; $('demo-exercise-config').hidden = true;
     const placeholder = make('option', 'Choose a move…'); placeholder.value = '';
-    $('demo-exercise').replaceChildren(placeholder, ...(options ?? []).map(name => make('option', name)));
+    const exerciseOptions = (options ?? []).map(name => { const option = make('option', name); option.value = name; return option; });
+    $('demo-exercise').replaceChildren(placeholder, ...exerciseOptions);
   });
   $('demo-exercise').addEventListener('change', () => $('demo-exercise-config').hidden = !$('demo-exercise').value);
   function renderMoves(focusId, focusAction) {

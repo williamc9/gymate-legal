@@ -15,8 +15,9 @@
     />
     <meta property="og:type" content="website" />
     <title>Gymley · Privacy & Support</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <link rel="preload" as="font" href="../assets/Baloo2-Bold.ttf" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=2" />
+    <script src="script.js?v=2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-en">Skip to content</a>
@@ -24,12 +25,13 @@
     <header class="hero">
       <nav class="topbar" aria-label="Primary navigation">
         <a class="brand" href="../" aria-label="Gymley home">
-          <span class="brand-mark" aria-hidden="true">✦</span>
-          <span>GYMLEY</span>
+          <img src="../assets/logo.png" width="44" height="44" alt="" />
+          <span>Gymley</span>
         </a>
         <div class="language-switch" aria-label="Language">
           <button type="button" data-language="en" aria-pressed="true">EN</button>
-          <button type="button" data-language="zh-HK" aria-pressed="false">繁中</button>
+          <button type="button" data-language="zh-HK" aria-pressed="false">香港</button>
+          <button type="button" data-language="zh-TW" aria-pressed="false">台灣</button>
         </div>
       </nav>
 
@@ -565,9 +567,9 @@
     </main>
 
     <footer>
-      <a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">✦</span><span>GYMLEY</span></a>
-      <p>Private by design · 以私隱為核心</p>
-      <p>Operated by William Chow · <a href="mailto:legal@gymley.app">legal@gymley.app</a></p>
+      <a class="brand footer-brand" href="#top"><img src="../assets/logo.png" width="44" height="44" alt="" /><span>Gymley</span></a>
+      <p id="footer-principle">Private by design · 以私隱為核心</p>
+      <p id="footer-operator">Operated by William Chow · <a href="mailto:legal@gymley.app">legal@gymley.app</a></p>
       <p>© 2026 Gymley</p>
     </footer>
   </body>

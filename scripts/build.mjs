@@ -8,6 +8,7 @@ const requiredHomepageFragments = [
   'id="ask-a-spot"',
   'href="legal/#privacy-en"',
   'href="legal/#delete-en"',
+  'data-site-language="zh-HK"', 'data-site-language="zh-TW"',
 ];
 const requiredLegalFragments = [
   'id="privacy-en"', 'id="terms-en"', 'id="community-en"',
@@ -16,6 +17,7 @@ const requiredLegalFragments = [
   'id="delete-zh"', 'Bonus Wave balance and grant/spend',
   'Bonus Wave 餘額及增減帳目', 'Favorite Rooms are visible only to you',
   '最愛房間只得你睇到',
+  'data-language="zh-TW"',
 ];
 
 for (const fragment of requiredHomepageFragments) {
@@ -33,7 +35,7 @@ await mkdir('dist', { recursive: true });
 const rootFiles = [
   'index.html', 'CNAME', '.nojekyll', 'opening.css', 'crowd.js',
   'story.css', 'story.js', 'playground.css', 'playground.js',
-  'tools-demo.css', 'tools-demo.js',
+  'tools-demo.css', 'tools-demo.js', 'i18n.js',
 ];
 for (const file of rootFiles) await cp(file, `dist/${file}`);
 await cp('assets', 'dist/assets', { recursive: true });

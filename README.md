@@ -1,6 +1,7 @@
 # Gymley Website
 
-Public Gymley product website with bilingual legal and support information. The
+Public Gymley product website with English, Hong Kong Traditional Chinese, and
+Taiwan Traditional Chinese product, legal, and support information. The
 homepage is served from the repository root and legal documents live under
 `/legal/`.
 
