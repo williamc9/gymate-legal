@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8VL2DALUX6.co.mormorchu.gymate",
+        "paths": ["/connect", "/connect/", "/connect/*"]
+      }
+    ]
+  }
+}

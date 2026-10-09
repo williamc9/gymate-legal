@@ -38,4 +38,6 @@ const rootFiles = [
 for (const file of rootFiles) await cp(file, `dist/${file}`);
 await cp('assets', 'dist/assets', { recursive: true });
 await cp('legal', 'dist/legal', { recursive: true });
+await cp('connect', 'dist/connect', { recursive: true });
+await cp('.well-known', 'dist/.well-known', { recursive: true });
 console.log('Gymley website and legal pages validated and built.');

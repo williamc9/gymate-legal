@@ -1,0 +1,20 @@
+@font-face{font-family:Baloo;src:url('../assets/Baloo2-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:Inter;src:url('../assets/Inter-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+:root{color-scheme:light;font-family:Inter,Arial,sans-serif;color:#0e2a24;background:#12d8a0}
+*{box-sizing:border-box}
+body{min-height:100svh;margin:0;padding:28px 16px;display:grid;place-items:center;background:radial-gradient(circle at -10% 0%,#ffb100 0 20%,transparent 20.2%),radial-gradient(circle at 100% 110%,#a2edd3 0 25%,transparent 25.2%),#12d8a0}
+.card{width:min(100%,530px);padding:30px clamp(24px,6vw,48px) 40px;border-radius:34px;background:#fffdf7;box-shadow:0 20px 50px #0e2a2433}
+.brand{display:flex;align-items:center;justify-content:flex-end;gap:10px;color:#b97b00;font:700 31px/1 Baloo,Arial,sans-serif}
+.brand img{border-radius:15px;box-shadow:0 4px 0 #d99700}
+.eyebrow{margin:48px 0 8px;color:#157a4f;font-size:13px;font-weight:700;letter-spacing:.1em}
+h1{margin:0;font:700 clamp(38px,9vw,54px)/1.05 Baloo,Arial,sans-serif}
+.intro{color:#526c63;font-size:17px;line-height:1.55;margin:16px 0 30px}
+.button{display:flex;min-height:58px;align-items:center;justify-content:center;text-align:center;border-radius:18px;text-decoration:none;font:700 23px/1.2 Baloo,Arial,sans-serif;margin-top:12px;padding:12px}
+.button-primary{background:#f2c14e;color:#6b4a12;box-shadow:0 5px 0 #c6892a}
+.button-secondary{background:#1e7367;color:#fff;box-shadow:0 5px 0 #0e453d}
+.button:focus-visible,.home-link:focus-visible{outline:3px solid #0e2a24;outline-offset:4px}
+.note,.return-note{color:#5a7168;font-size:14px;line-height:1.5;margin-top:24px}
+.return-note{border-top:1px solid #e5efea;padding-top:18px}
+.error{color:#8c382d}
+.home-link{display:inline-block;margin-top:16px;color:#157a4f}
+[hidden]{display:none!important}
