@@ -3,6 +3,7 @@ import { cp, mkdir, readFile, rm } from 'node:fs/promises';
 const homepage = await readFile('index.html', 'utf8');
 const legal = await readFile('legal/index.html', 'utf8');
 const investors = await readFile('investors/index.html', 'utf8');
+const investorScript = await readFile('investors/script.js', 'utf8');
 const requiredHomepageFragments = [
   'Meet someone',
   'id="wave-story"',
@@ -23,7 +24,7 @@ const requiredLegalFragments = [
 ];
 const requiredInvestorFragments = [
   'id="investor-form"', 'invest@gymley.app', 'data-language="zh-HK"',
-  'data-language="zh-TW"', 'Anywhere people train', 'mailto:',
+  'data-language="zh-TW"', 'Anywhere people train', 'mailto:invest@gymley.app',
 ];
 
 for (const fragment of requiredHomepageFragments) {
@@ -33,9 +34,12 @@ for (const fragment of requiredLegalFragments) {
   if (!legal.includes(fragment)) throw new Error(`Legal page is missing: ${fragment}`);
 }
 for (const fragment of requiredInvestorFragments) {
-  if (!investors.includes(fragment)) throw new Error(`Investor page is missing: ${fragment}`);
+  if (!`${investors}\n${investorScript}`.includes(fragment)) throw new Error(`Investor page is missing: ${fragment}`);
 }
-if (/TODO|YOUR_EMAIL/i.test(`${homepage}\n${legal}\n${investors}`)) {
+if (investors.includes('href="mailto:invest@gymley.app"')) {
+  throw new Error('Investor page should use the form as its single email action.');
+}
+if (/TODO|YOUR_EMAIL/i.test(`${homepage}\n${legal}\n${investors}\n${investorScript}`)) {
   throw new Error('Public pages still contain placeholder content.');
 }
 
