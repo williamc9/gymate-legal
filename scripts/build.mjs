@@ -9,6 +9,7 @@ const requiredHomepageFragments = [
   'href="legal/#privacy-en"',
   'href="legal/#delete-en"',
   'data-site-language="zh-HK"', 'data-site-language="zh-TW"',
+  'href="mailto:invest@gymley.app?subject=Gymley%20investment%20enquiry"',
 ];
 const requiredLegalFragments = [
   'id="privacy-en"', 'id="terms-en"', 'id="community-en"',
