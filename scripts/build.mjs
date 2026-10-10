@@ -2,6 +2,7 @@ import { cp, mkdir, readFile, rm } from 'node:fs/promises';
 
 const homepage = await readFile('index.html', 'utf8');
 const legal = await readFile('legal/index.html', 'utf8');
+const investors = await readFile('investors/index.html', 'utf8');
 const requiredHomepageFragments = [
   'Meet someone',
   'id="wave-story"',
@@ -9,7 +10,7 @@ const requiredHomepageFragments = [
   'href="legal/#privacy-en"',
   'href="legal/#delete-en"',
   'data-site-language="zh-HK"', 'data-site-language="zh-TW"',
-  'href="mailto:invest@gymley.app?subject=Gymley%20investment%20enquiry"',
+  'href="investors/"',
 ];
 const requiredLegalFragments = [
   'id="privacy-en"', 'id="terms-en"', 'id="community-en"',
@@ -20,6 +21,10 @@ const requiredLegalFragments = [
   '最愛房間只得你睇到',
   'data-language="zh-TW"',
 ];
+const requiredInvestorFragments = [
+  'id="investor-form"', 'invest@gymley.app', 'data-language="zh-HK"',
+  'data-language="zh-TW"', 'Anywhere people train', 'mailto:',
+];
 
 for (const fragment of requiredHomepageFragments) {
   if (!homepage.includes(fragment)) throw new Error(`Homepage is missing: ${fragment}`);
@@ -27,7 +32,10 @@ for (const fragment of requiredHomepageFragments) {
 for (const fragment of requiredLegalFragments) {
   if (!legal.includes(fragment)) throw new Error(`Legal page is missing: ${fragment}`);
 }
-if (/TODO|YOUR_EMAIL/i.test(`${homepage}\n${legal}`)) {
+for (const fragment of requiredInvestorFragments) {
+  if (!investors.includes(fragment)) throw new Error(`Investor page is missing: ${fragment}`);
+}
+if (/TODO|YOUR_EMAIL/i.test(`${homepage}\n${legal}\n${investors}`)) {
   throw new Error('Public pages still contain placeholder content.');
 }
 
@@ -41,6 +49,7 @@ const rootFiles = [
 for (const file of rootFiles) await cp(file, `dist/${file}`);
 await cp('assets', 'dist/assets', { recursive: true });
 await cp('legal', 'dist/legal', { recursive: true });
+await cp('investors', 'dist/investors', { recursive: true });
 await cp('connect', 'dist/connect', { recursive: true });
 await cp('.well-known', 'dist/.well-known', { recursive: true });
 console.log('Gymley website and legal pages validated and built.');
